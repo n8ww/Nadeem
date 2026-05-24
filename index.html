@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sadeem Alharthi — The Governance Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0a0907;
+  --ink2:#111009;
+  --ink3:#1c1913;
+  --ink4:#272318;
+  --gold:#c9a84c;
+  --gold2:#e0c47a;
+  --gold3:#f0dfa0;
+  --gold-dim:rgba(201,168,76,0.12);
+  --text:#e8e2d6;
+  --text2:#a89e8a;
+  --text3:#6b6050;
+  --line:rgba(201,168,76,0.14);
+  --r:10px;--rl:16px;
+  --nav-bg:rgba(10,9,7,0.88);
+}
+html.light{
+  --ink:#f5f1e8;
+  --ink2:#ede8dc;
+  --ink3:#e4ddd0;
+  --ink4:#dbd3c2;
+  --gold:#9a6f20;
+  --gold2:#7d5815;
+  --gold3:#5e4010;
+  --gold-dim:rgba(154,111,32,0.1);
+  --text:#1a1610;
+  --text2:#4a3f2c;
+  --text3:#8a7a60;
+  --line:rgba(154,111,32,0.15);
+  --nav-bg:rgba(245,241,232,0.92);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden;line-height:1.7;transition:background .35s,color .35s}
+::selection{background:var(--gold);color:#fff}
+
+/* light mode overrides */
+html.light .hero{background:var(--ink);}
+html.light .hero-num{color:rgba(154,111,32,0.07);}
+html.light .hero-bg{background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(154,111,32,0.07) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(154,111,32,0.04) 0%,transparent 60%);}
+html.light h1.hero-name{color:#0f0d08;}
+html.light h1.hero-name em{color:var(--gold2);}
+html.light .manifesto::before{color:rgba(154,111,32,0.06);}
+html.light .mf-text{color:#1a1610;}
+html.light .mf-text strong{color:#0f0d08;}
+html.light .mf-sig{color:var(--text3);}
+html.light .numbers-subtitle,.journey-subtitle,.exp-subtitle,.disc-subtitle,.cert-subtitle,.ach-subtitle,.vol-subtitle{color:#0f0d08;}
+html.light .nb{background:var(--ink2);}
+html.light .nb-num{color:var(--gold);}
+html.light .jt-title,.exp-role2,.disc-card,.dc-title,.cert-name2,.ach-title2,.vol-subtitle{color:#0f0d08;}
+html.light .tl-card,.disc-card,.cert-card,.course-item,.nb{transition:background .35s,border-color .2s;}
+html.light .ach-row{background:var(--ink2);}
+html.light .ach-row:hover{background:var(--ink3);}
+html.light .ach-idx{color:rgba(154,111,32,0.18);}
+html.light .vol-row{background:var(--ink2);}
+html.light .vol-row:hover{background:var(--ink3);}
+html.light .contact::before{color:rgba(154,111,32,0.05);}
+html.light .contact-heading{color:#0f0d08;}
+html.light .contact-heading em{color:var(--gold);}
+html.light .cl-email{color:var(--gold);}
+html.light footer{background:var(--ink2);}
+html.light .scroll-line{background:var(--gold);}
+
+/* toggle button */
+.theme-toggle{
+  width:38px;height:22px;border-radius:11px;
+  border:1px solid var(--line);
+  background:var(--ink3);
+  cursor:pointer;position:relative;
+  transition:background .3s,border-color .3s;
+  flex-shrink:0;
+  outline:none;
+}
+.theme-toggle::after{
+  content:'';
+  position:absolute;top:3px;left:3px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s;
+}
+html.light .theme-toggle{background:var(--ink3);}
+html.light .theme-toggle::after{transform:translateX(16px);background:var(--gold);}
+html.light .hero-eyebrow{color:var(--gold);}
+html.light .section-label{color:var(--gold);}
+html.light .exp-org2{color:var(--gold);}
+html.light .jt-year{color:var(--gold);}
+html.light .vr-year{color:var(--gold);}
+html.light .cert-badge{background:rgba(154,111,32,0.1);border-color:rgba(154,111,32,0.2);color:var(--gold);}
+html.light .ci-check{color:var(--gold);}
+html.light .numbers-subtitle{color:#0f0d08;}
+html.light .journey-subtitle{color:#0f0d08;}
+html.light .exp-subtitle{color:#0f0d08;}
+html.light .disc-subtitle{color:#0f0d08;}
+html.light .cert-subtitle{color:#0f0d08;}
+html.light .ach-subtitle{color:#0f0d08;}
+html.light .vol-subtitle{color:#0f0d08;}
+html.light .jt-title{color:#0f0d08;}
+html.light .exp-role2{color:#0f0d08;}
+html.light .dc-title{color:#0f0d08;}
+html.light .cert-name2{color:#0f0d08;}
+html.light .ach-title2{color:#0f0d08;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 3rem;height:56px;
+  background:var(--nav-bg);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  transition:background .35s,border-color .35s;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:15px;font-weight:500;
+  color:var(--gold2);letter-spacing:0.04em;
+}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text3);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--gold2);}
+.nav-pill{
+  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--gold-dim);color:var(--gold);
+  padding:5px 12px;border-radius:20px;
+  border:1px solid rgba(201,168,76,0.25);
+  white-space:nowrap;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:0 3rem 4rem;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(201,168,76,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+.hero-num{
+  position:absolute;top:56px;right:3rem;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(180px,22vw,320px);
+  font-weight:700;
+  color:rgba(201,168,76,0.04);
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+  letter-spacing:-0.05em;
+}
+.hero-content{position:relative;z-index:1;max-width:820px;}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;
+  margin-top:56px;
+  padding-top:5rem;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+h1.hero-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,8vw,100px);
+  font-weight:700;
+  line-height:0.92;
+  letter-spacing:-0.03em;
+  color:#fff;
+  margin-bottom:1rem;
+}
+h1.hero-name em{
+  display:block;
+  font-style:italic;
+  color:var(--gold2);
+  font-weight:400;
+}
+.hero-tagline{
+  font-size:clamp(13px,1.5vw,16px);
+  color:var(--text2);
+  max-width:560px;
+  line-height:1.8;
+  margin-bottom:3rem;
+  border-left:2px solid var(--gold);
+  padding-left:1.25rem;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:2rem;
+  font-size:12px;color:var(--text3);
+}
+.hm{display:flex;align-items:center;gap:8px;}
+.hm svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0;}
+.scroll-indicator{
+  position:absolute;bottom:2.5rem;right:3rem;
+  display:flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text3);
+}
+.scroll-line{
+  width:1px;height:40px;background:var(--gold);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(0.6)}}
+
+/* ── MANIFESTO ── */
+.manifesto{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.manifesto::before{
+  content:'"';
+  position:absolute;top:-3rem;left:2rem;
+  font-family:'Playfair Display',serif;
+  font-size:280px;font-weight:700;
+  color:rgba(201,168,76,0.05);
+  line-height:1;pointer-events:none;
+}
+.mf-label{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;
+}
+.mf-text{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,2.5vw,30px);
+  font-weight:400;font-style:italic;
+  color:var(--text);
+  line-height:1.6;
+  max-width:780px;
+}
+.mf-text strong{font-style:normal;font-weight:700;color:#fff;}
+.mf-sig{
+  margin-top:2rem;
+  font-size:12px;color:var(--text3);
+  letter-spacing:0.08em;
+}
+
+/* ── NUMBERS ── */
+.numbers{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.numbers-head{margin-bottom:3rem;}
+.section-label{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+  display:flex;align-items:center;gap:12px;
+}
+.section-label::before{
+  content:attr(data-num);
+  font-size:10px;letter-spacing:0.1em;
+  color:var(--text3);border:1px solid var(--line);
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.numbers-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;
+  max-width:600px;line-height:1.3;
+}
+.numbers-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--rl);overflow:hidden;
+}
+.nb{
+  background:var(--ink2);
+  padding:2.5rem 2rem;
+  transition:background .25s;
+}
+.nb:hover{background:var(--ink3);}
+.nb-num{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,5vw,64px);
+  font-weight:700;line-height:1;
+  color:var(--gold2);margin-bottom:8px;
+}
+.nb-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);}
+.nb-sub{font-size:12px;color:var(--text3);margin-top:4px;opacity:.6;}
+
+/* ── JOURNEY ── */
+.journey{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.journey-head{margin-bottom:4rem;}
+.journey-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;line-height:1.3;
+}
+.jt{display:flex;flex-direction:column;gap:0;}
+.jt-item{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:2.5rem;
+  padding:2.5rem 0;
+  border-bottom:1px solid var(--line);
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);
+}
+.jt-item.vis{opacity:1;transform:translateY(0);}
+.jt-item:last-child{border-bottom:none;}
+.jt-year{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-weight:500;
+  color:var(--gold);padding-top:4px;
+}
+.jt-content{}
+.jt-phase{
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:6px;
+}
+.jt-title{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:500;color:#fff;
+  margin-bottom:10px;line-height:1.3;
+}
+.jt-desc{font-size:13px;color:var(--text2);line-height:1.75;}
+
+/* ── EXPERIENCE ── */
+.experience{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.exp-head{margin-bottom:3.5rem;}
+.exp-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;line-height:1.3;
+}
+.exp-item{
+  padding:2.5rem 0;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:3rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);
+}
+.exp-item.vis{opacity:1;transform:translateY(0);}
+.exp-item:last-child{border-bottom:none;}
+.exp-left{}
+.exp-period{font-size:12px;color:var(--text3);margin-bottom:8px;line-height:1.5;}
+.exp-type{
+  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text3);
+}
+.exp-tags2{display:flex;flex-direction:column;gap:5px;margin-top:10px;}
+.etag{
+  display:inline-block;font-size:10px;padding:3px 9px;
+  border-radius:20px;border:1px solid;
+  letter-spacing:0.04em;width:fit-content;
+}
+.et-now{background:rgba(57,155,17,0.1);color:#7cc94a;border-color:rgba(57,155,17,0.25);}
+.et-pif{background:rgba(24,95,165,0.1);color:#6ab3f4;border-color:rgba(24,95,165,0.25);}
+.et-law{background:rgba(83,74,183,0.1);color:#a9a3f0;border-color:rgba(83,74,183,0.25);}
+.et-prop{background:rgba(153,60,29,0.1);color:#f0956b;border-color:rgba(153,60,29,0.25);}
+.exp-right{}
+.exp-role2{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:500;color:#fff;
+  margin-bottom:4px;line-height:1.3;
+}
+.exp-org2{font-size:13px;color:var(--gold);margin-bottom:1rem;font-weight:500;}
+.exp-duties2{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.exp-duties2 li{
+  font-size:13px;color:var(--text2);line-height:1.65;
+  display:flex;gap:12px;
+}
+.exp-duties2 li::before{content:'—';color:var(--text3);flex-shrink:0;}
+.exp-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--text3);
+  margin-top:1rem;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:default;
+  transition:color .2s;
+}
+.exp-link:hover{color:var(--gold);}
+.exp-link::after{content:'→';}
+
+/* ── DISCIPLINES ── */
+.disciplines{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.disc-head{margin-bottom:3.5rem;}
+.disc-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;line-height:1.3;
+}
+.disc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.disc-card{
+  background:var(--ink2);
+  border:1px solid var(--line);
+  border-radius:var(--rl);
+  padding:2rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1),border-color .25s;
+}
+.disc-card.vis{opacity:1;transform:translateY(0);}
+.disc-card:hover{border-color:rgba(201,168,76,0.3);}
+.dc-num{
+  font-family:'Playfair Display',serif;
+  font-size:40px;font-weight:700;
+  color:rgba(201,168,76,0.15);
+  line-height:1;margin-bottom:1rem;
+}
+.dc-title{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-weight:500;
+  color:#fff;margin-bottom:1.2rem;
+  line-height:1.3;
+}
+.dc-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.dc-list li{
+  font-size:12px;color:var(--text2);
+  display:flex;gap:8px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  padding-bottom:6px;
+}
+.dc-list li:last-child{border:none;padding:0;}
+.dc-list li::before{
+  content:attr(data-i);
+  color:var(--text3);font-size:10px;
+  min-width:18px;margin-top:2px;
+}
+
+/* ── CERTIFICATIONS ── */
+.certifications{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.cert-head{margin-bottom:3.5rem;}
+.cert-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;line-height:1.3;
+}
+.cert-tier-label{
+  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:1.5rem;
+}
+.cert-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;
+  margin-bottom:3rem;
+}
+.cert-card{
+  background:var(--ink2);border:1px solid var(--line);
+  border-radius:var(--r);padding:1.5rem;
+  display:flex;gap:1rem;align-items:flex-start;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .5s,transform .5s,border-color .2s;
+}
+.cert-card.vis{opacity:1;transform:translateY(0);}
+.cert-card:hover{border-color:rgba(201,168,76,0.3);}
+.cert-badge{
+  width:40px;height:40px;border-radius:8px;
+  background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:10px;letter-spacing:0.06em;
+  font-weight:500;color:var(--gold);text-align:center;
+  line-height:1.2;
+}
+.cert-name2{font-size:14px;font-weight:500;color:#fff;margin-bottom:2px;}
+.cert-org2{font-size:12px;color:var(--text3);}
+.courses-wrap{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
+}
+.course-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 14px;
+  background:var(--ink2);
+  border:1px solid var(--line);border-radius:var(--r);
+  font-size:12px;color:var(--text2);
+  opacity:0;transform:translateY(12px);
+  transition:opacity .4s,transform .4s;
+}
+.course-item.vis{opacity:1;transform:translateY(0);}
+.ci-check{color:var(--gold);flex-shrink:0;font-size:11px;margin-top:1px;}
+
+/* ── ACHIEVEMENTS ── */
+.achievements{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.ach-head{margin-bottom:3.5rem;}
+.ach-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;line-height:1.3;
+}
+.ach-items{display:flex;flex-direction:column;gap:1px;background:var(--line);}
+.ach-row{
+  background:var(--ink2);
+  padding:2.5rem 2rem;
+  display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:start;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .5s,transform .5s;
+}
+.ach-row.vis{opacity:1;transform:translateY(0);}
+.ach-row:hover{background:var(--ink3);}
+.ach-idx{
+  font-family:'Playfair Display',serif;
+  font-size:48px;font-weight:700;line-height:1;
+  color:rgba(201,168,76,0.2);
+}
+.ach-body{}
+.ach-title2{font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;}
+.ach-desc{font-size:13px;color:var(--text2);line-height:1.7;}
+
+/* ── VOLUNTEER ── */
+.volunteer{
+  padding:5rem 3rem;
+  border-bottom:1px solid var(--line);
+}
+.vol-head{margin-bottom:2.5rem;}
+.vol-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:500;color:#fff;line-height:1.3;
+}
+.vol-items{display:flex;flex-direction:column;gap:1px;background:var(--line);}
+.vol-row{
+  background:var(--ink2);padding:1.2rem 2rem;
+  display:flex;gap:2rem;align-items:center;
+  font-size:13px;
+}
+.vol-row:hover{background:var(--ink3);}
+.vr-year{color:var(--gold);min-width:50px;font-weight:500;}
+.vr-text{color:var(--text2);}
+
+/* ── CONTACT ── */
+.contact{
+  padding:6rem 3rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.contact::before{
+  content:'LET\'S TALK';
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Playfair Display',serif;
+  font-size:clamp(60px,12vw,160px);font-weight:700;
+  color:rgba(201,168,76,0.04);
+  white-space:nowrap;letter-spacing:-0.02em;
+  pointer-events:none;
+}
+.contact-label{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.contact-label::before,.contact-label::after{content:'';width:28px;height:1px;background:var(--gold);}
+.contact-heading{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,5vw,56px);
+  font-weight:500;color:#fff;
+  margin-bottom:1rem;line-height:1.2;
+}
+.contact-heading em{font-style:italic;color:var(--gold2);}
+.contact-links{
+  display:flex;flex-direction:column;gap:1rem;
+  align-items:center;margin-top:3rem;
+}
+.cl-email{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(16px,2.5vw,24px);
+  font-weight:400;color:var(--gold2);
+  text-decoration:none;
+  border-bottom:1px solid rgba(201,168,76,0.3);
+  padding-bottom:4px;
+  transition:border-color .2s;
+}
+.cl-email:hover{border-color:var(--gold);}
+.contact-row{
+  display:flex;gap:2.5rem;align-items:center;
+  margin-top:1rem;justify-content:center;
+}
+.cr-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--text3);
+  text-decoration:none;transition:color .2s;
+}
+.cr-item:hover{color:var(--gold2);}
+.cr-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink2);
+  padding:1.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line);
+  font-size:11px;color:var(--text3);
+}
+.ft-left{display:flex;align-items:center;gap:8px;}
+.ft-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.5;}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.fade-in.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.05s}.d2{transition-delay:.1s}.d3{transition-delay:.15s}
+.d4{transition-delay:.2s}.d5{transition-delay:.25s}.d6{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hero,.manifesto,.numbers,.journey,.experience,.disciplines,.certifications,.achievements,.volunteer,.contact{padding-left:1.5rem;padding-right:1.5rem;}
+  .numbers-grid{grid-template-columns:1fr 1fr;}
+  .jt-item,.exp-item{grid-template-columns:1fr;gap:1rem;}
+  .jt-year{font-size:14px;}
+  .disc-grid,.cert-grid,.courses-wrap{grid-template-columns:1fr;}
+  footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sadeem Alharthi</div>
+  <div class="nav-links">
+    <a href="#journey">Journey</a>
+    <a href="#experience">Work</a>
+    <a href="#certifications">Credentials</a>
+    <a href="#contact">Contact</a>
+    <span class="nav-pill">Available — 2026</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-num">SA</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Board Secretariat Manager · New Murabba / PIF</div>
+    <h1 class="hero-name">
+      Sadeem
+      <em>Alharthi.</em>
+    </h1>
+    <p class="hero-tagline">
+      Six years turning boardrooms into precision instruments. I don't manage meetings — I architect governance. Every agenda, every minute, every framework is a decision that shapes how organizations move.
+    </p>
+    <div class="hero-meta">
+      <div class="hm"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>sadeemalharthiksu@hotmail.com</div>
+      <div class="hm"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+966 54 590 3278</div>
+      <div class="hm"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Riyadh, Saudi Arabia</div>
+      <div class="hm"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>LL.B. King Saud University · GPA 4.56</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="mf-label">The Manifesto</div>
+  <p class="mf-text">
+    I don't take minutes. <strong>I document decisions.</strong><br/>
+    I don't manage boards. <strong>I enable governance.</strong><br/>
+    Every framework I build is a promise to the organization — that the right people will decide the right things <strong>at the right time.</strong>
+  </p>
+  <div class="mf-sig">— Sadeem Alharthi, 2026</div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers" id="metrics">
+  <div class="numbers-head">
+    <div class="section-label" data-num="00">By the Numbers</div>
+    <div class="numbers-subtitle">Six years. Three PIF mandates. No shortcuts.</div>
+  </div>
+  <div class="numbers-grid">
+    <div class="nb">
+      <div class="nb-num" data-target="40">0</div>
+      <div class="nb-label">Legal Cases</div>
+      <div class="nb-sub">Favorable outcomes</div>
+    </div>
+    <div class="nb">
+      <div class="nb-num" data-target="6">0</div>
+      <div class="nb-label">Years Experience</div>
+      <div class="nb-sub">Corporate & legal</div>
+    </div>
+    <div class="nb">
+      <div class="nb-num" data-target="3">0</div>
+      <div class="nb-label">PIF Mandates</div>
+      <div class="nb-sub">New Murabba · Ceer</div>
+    </div>
+    <div class="nb">
+      <div class="nb-num" data-target="2">0</div>
+      <div class="nb-label">GRC Credentials</div>
+      <div class="nb-sub">GRCP · Compliance</div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="journey-head">
+    <div class="section-label" data-num="01">The Journey</div>
+    <div class="journey-subtitle">From first filing to governing a PIF flagship.</div>
+  </div>
+  <div class="jt">
+
+    <div class="jt-item">
+      <div class="jt-year">2018</div>
+      <div class="jt-content">
+        <div class="jt-phase">The Foundation</div>
+        <div class="jt-title">First Case · Sharia Law · Legal Research</div>
+        <div class="jt-desc">Began at Abdulrahman Alharthi Law Firm — conducting case studies, drafting contracts, and providing consulting in both legal and sharia law. Learned that law is not about the code; it's about the consequences. Spent two years building the foundation that everything else would stand on.</div>
+      </div>
+    </div>
+
+    <div class="jt-item">
+      <div class="jt-year">2020</div>
+      <div class="jt-content">
+        <div class="jt-phase">The Practice</div>
+        <div class="jt-title">LL.B. · Courtrooms · Legal Advisory</div>
+        <div class="jt-desc">Graduated from King Saud University with a 4.56 GPA. Moved immediately to Mohammed Almarshad Law Firm as Trainee Lawyer — drafting pleadings, representing clients in trials, and handling 40+ cases to successful resolution. Earned GRCP and Compliance Foundations certifications. Discovered that governance was where law became strategy.</div>
+      </div>
+    </div>
+
+    <div class="jt-item">
+      <div class="jt-year">2021</div>
+      <div class="jt-content">
+        <div class="jt-phase">The Pivot</div>
+        <div class="jt-title">Majid Al Futtaim · Board Affairs · Kuwait</div>
+        <div class="jt-desc">Joined Majid Al Futtaim Properties as Paralegal — drafting contracts, negotiating with government entities, and managing Board Committees. Led Kuwait operations as acting member of the MAF Group management team. The moment legal drafting met corporate governance, and I knew exactly where I belonged.</div>
+      </div>
+    </div>
+
+    <div class="jt-item">
+      <div class="jt-year">2022</div>
+      <div class="jt-content">
+        <div class="jt-phase">The Ascent</div>
+        <div class="jt-title">Ceer PIF × Foxconn · Governance at Scale</div>
+        <div class="jt-desc">Joined Ceer National Automotive Company — a joint venture between PIF and Foxconn — as Senior Corporate Governance Specialist. Managed shareholder relations, coordinated general assemblies, and prepared regulatory filings for one of Saudi Arabia's most high-profile industrial ventures. Operating at the intersection of national vision and corporate reality.</div>
+      </div>
+    </div>
+
+    <div class="jt-item">
+      <div class="jt-year">2024</div>
+      <div class="jt-content">
+        <div class="jt-phase">The Mandate</div>
+        <div class="jt-title">New Murabba PIF · Board Secretariat Leadership</div>
+        <div class="jt-desc">Brought in to build the Board Secretariat function at New Murabba — a landmark PIF development redefining Riyadh's future. Promoted from Assistant Manager to Manager in under two years. Today: leading the full governance framework, Delegation of Authority, and providing comprehensive support to the Board of Directors and all its Committees.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="exp-head">
+    <div class="section-label" data-num="02">Work</div>
+    <div class="exp-subtitle">Where I've built governance.</div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-left">
+      <div class="exp-period">Jan 2026 – Present<br/>Riyadh · Full-time</div>
+      <div class="exp-tags2">
+        <span class="etag et-now">Current</span>
+        <span class="etag et-pif">PIF</span>
+      </div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role2">Board Secretariat Manager</div>
+      <div class="exp-org2">New Murabba Development Company — PIF Subsidiary</div>
+      <ul class="exp-duties2">
+        <li>Leads the full Board Secretariat function — comprehensive support to the Board of Directors and all affiliated Committees including scheduling, agendas, materials, minutes, and formal documentation of decisions.</li>
+        <li>Oversees corporate governance policies and the Delegation of Authority framework ensuring full compliance with laws, regulations, and governance codes.</li>
+        <li>Manages shareholder relations, coordinates AGMs, and ensures legal compliance across all Board affairs.</li>
+        <li>Prepares corporate disclosures: annual reports, proxy statements, and regulatory filings with accurate and timely submission.</li>
+        <li>Provides guidance to employees and management on policy interpretation, application, and governance inquiries.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-left">
+      <div class="exp-period">Jan 2024 – Dec 2025<br/>Riyadh · Full-time</div>
+      <div class="exp-tags2">
+        <span class="etag et-pif">PIF</span>
+      </div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role2">Board Secretariat & Corporate Governance Assistant Manager</div>
+      <div class="exp-org2">New Murabba Development Company — PIF Subsidiary</div>
+      <ul class="exp-duties2">
+        <li>Supported the Board and all affiliated Committees: scheduling, agenda preparation, material review, minutes drafting, and full documentation and distribution of decisions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-left">
+      <div class="exp-period">Aug 2022 – Dec 2023<br/>Riyadh · Full-time</div>
+      <div class="exp-tags2">
+        <span class="etag et-pif">PIF</span>
+      </div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role2">Senior Corporate Governance Specialist</div>
+      <div class="exp-org2">Ceer National Automotive Company — PIF & Foxconn JV</div>
+      <ul class="exp-duties2">
+        <li>Managed shareholder relations, facilitated communication, and coordinated general assemblies including AGMs in full legal compliance.</li>
+        <li>Prepared corporate disclosures: annual reports, proxy statements, and regulatory filings.</li>
+        <li>Advised employees and management on governance policy interpretation and application.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-left">
+      <div class="exp-period">Jul 2021 – Jul 2022<br/>Kuwait / KSA · Full-time</div>
+      <div class="exp-tags2">
+        <span class="etag et-prop">Real Estate</span>
+      </div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role2">Paralegal</div>
+      <div class="exp-org2">Majid Al Futtaim Properties — Country Head Office</div>
+      <ul class="exp-duties2">
+        <li>Drafted, reviewed, and managed legal documents including contracts, RFPs, and legal letters.</li>
+        <li>Supported project management on contract execution, application of contract terms, and minimizing commercial risks.</li>
+        <li>Attended meetings with governmental organizations and investors to negotiate legal affairs.</li>
+        <li>Managed Board and Committee meetings, documentation, and governance while acting as member of the MAF Group management team in Kuwait.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-left">
+      <div class="exp-period">Jun 2020 – Jul 2021<br/>Riyadh · Full-time</div>
+      <div class="exp-tags2">
+        <span class="etag et-law">Legal</span>
+      </div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role2">Trainee Lawyer & Legal Advisor</div>
+      <div class="exp-org2">Mohammed Almarshad Law Firm</div>
+      <ul class="exp-duties2">
+        <li>Drafted pleadings, briefs, contracts, and legal letters. Interviewed clients and provided oral and written legal advice.</li>
+        <li>Conducted case research, represented clients in trials and meetings, and followed up post-decision for compliance with obligations.</li>
+        <li>Successfully handled 40+ cases delivering favorable outcomes across civil and corporate matters.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-left">
+      <div class="exp-period">May 2018 – Apr 2020<br/>Riyadh · Full-time</div>
+      <div class="exp-tags2">
+        <span class="etag et-law">Legal</span>
+      </div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role2">Legal Trainee</div>
+      <div class="exp-org2">Abdulrahman Alharthi Law Firm</div>
+      <ul class="exp-duties2">
+        <li>Assisted legal consultants with legal advice and research. Conducted case studies, prepared memos, and provided consulting in legal and sharia law.</li>
+        <li>Conducted legal research analyzing case facts against current law; prepared contracts and legal documents.</li>
+        <li>Worked across Marom Real-estate Development Company and Fars Limited Liability Company — franchise planning, regulatory compliance, and legal operations.</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- DISCIPLINES -->
+<section class="disciplines">
+  <div class="disc-head">
+    <div class="section-label" data-num="03">The Arsenal</div>
+    <div class="disc-subtitle">Three disciplines. One governance architect.</div>
+  </div>
+  <div class="disc-grid">
+    <div class="disc-card">
+      <div class="dc-num">I</div>
+      <div class="dc-title">Governance & Board Affairs</div>
+      <ul class="dc-list">
+        <li data-i="01">Corporate Governance Frameworks</li>
+        <li data-i="02">Board Secretariat Management</li>
+        <li data-i="03">Delegation of Authority</li>
+        <li data-i="04">Shareholder & Stakeholder Relations</li>
+        <li data-i="05">Regulatory Compliance</li>
+        <li data-i="06">AGM & Committee Coordination</li>
+      </ul>
+    </div>
+    <div class="disc-card d2">
+      <div class="dc-num">II</div>
+      <div class="dc-title">Legal Practice</div>
+      <ul class="dc-list">
+        <li data-i="01">Legal Drafting & Review</li>
+        <li data-i="02">Contract Management</li>
+        <li data-i="03">GRC Compliance (GRCP)</li>
+        <li data-i="04">Legal Research & Analysis</li>
+        <li data-i="05">Pleadings & Court Representation</li>
+        <li data-i="06">Sharia Law Consulting</li>
+      </ul>
+    </div>
+    <div class="disc-card d3">
+      <div class="dc-num">III</div>
+      <div class="dc-title">Leadership & Execution</div>
+      <ul class="dc-list">
+        <li data-i="01">Negotiation & Stakeholder Mgmt</li>
+        <li data-i="02">Risk Management</li>
+        <li data-i="03">Project Management</li>
+        <li data-i="04">Arabic & English (Professional)</li>
+        <li data-i="05">Cross-functional Collaboration</li>
+        <li data-i="06">Corporate Disclosures & Filings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications" id="certifications">
+  <div class="cert-head">
+    <div class="section-label" data-num="04">Credentials</div>
+    <div class="cert-subtitle">Credentialed & current.</div>
+  </div>
+
+  <div class="cert-tier-label">Tier I — Professional Certifications</div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-badge">GRCP</div>
+      <div>
+        <div class="cert-name2">Governance, Risk & Compliance Professional</div>
+        <div class="cert-org2">Open Compliance and Ethics Group (OCEG) · 2021</div>
+      </div>
+    </div>
+    <div class="cert-card d2">
+      <div class="cert-badge">CFP</div>
+      <div>
+        <div class="cert-name2">Compliance Foundations Professional Exam</div>
+        <div class="cert-org2">The Financial Academy · 2021</div>
+      </div>
+    </div>
+    <div class="cert-card d3">
+      <div class="cert-badge">LL.B</div>
+      <div>
+        <div class="cert-name2">Bachelor of Laws</div>
+        <div class="cert-org2">King Saud University · 2020 · GPA 4.56 / 5.00 · Second Class of Honor</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cert-tier-label" style="margin-top:2.5rem;">Tier II — Courses & Training</div>
+  <div class="courses-wrap">
+    <div class="course-item"><div class="ci-check">✓</div>Board Secretary Course (2021)</div>
+    <div class="course-item d1"><div class="ci-check">✓</div>Anti-Money Laundering Course (2020)</div>
+    <div class="course-item d2"><div class="ci-check">✓</div>Leadership Essentials Course (2020)</div>
+    <div class="course-item d3"><div class="ci-check">✓</div>Detection Methods of Counterfeiting and Forgery (2020)</div>
+    <div class="course-item d4"><div class="ci-check">✓</div>Future Misk Path — Career Preparation (2020)</div>
+    <div class="course-item d5"><div class="ci-check">✓</div>Economic Conference "Money and Business" (2020)</div>
+    <div class="course-item d1"><div class="ci-check">✓</div>Effective Guidance to "Legal Advice" Course (2019)</div>
+    <div class="course-item d2"><div class="ci-check">✓</div>Tuwaiq in the Saudi Capital Market (2019)</div>
+    <div class="course-item d3"><div class="ci-check">✓</div>Declamation Course (2019)</div>
+    <div class="course-item d4"><div class="ci-check">✓</div>Open Forum Discussion "Anti-Dumping" (2018)</div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements" id="achievements">
+  <div class="ach-head">
+    <div class="section-label" data-num="05">Recognition</div>
+    <div class="ach-subtitle">Measured in outcomes, not opinions.</div>
+  </div>
+  <div class="ach-items">
+    <div class="ach-row">
+      <div class="ach-idx">01</div>
+      <div class="ach-body">
+        <div class="ach-title2">40+ Cases. All Favorable.</div>
+        <div class="ach-desc">Successfully handled over forty (40) legal cases across civil, corporate, and governance matters — delivering favorable outcomes for every client. Across firms, industries, and jurisdictions.</div>
+      </div>
+    </div>
+    <div class="ach-row">
+      <div class="ach-idx">02</div>
+      <div class="ach-body">
+        <div class="ach-title2">First Digital Legal Services Platform in the Middle East</div>
+        <div class="ach-desc">Fully supervised the operating companies that built and launched the first digital legal services application and website of its kind in the Middle East — from concept through delivery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section class="volunteer" id="volunteer">
+  <div class="vol-head">
+    <div class="section-label" data-num="06">Volunteer & Memberships</div>
+    <div class="vol-subtitle">Giving back to the profession.</div>
+  </div>
+  <div class="vol-items">
+    <div class="vol-row"><div class="vr-year">2019</div><div class="vr-text">Book Fair Volunteer</div></div>
+    <div class="vol-row"><div class="vr-year">2018</div><div class="vr-text">Member — Cultural and Social Club, King Saud University</div></div>
+    <div class="vol-row"><div class="vr-year">2016</div><div class="vr-text">Member — Law Club, King Saud University</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-label">Let's Talk</div>
+  <h2 class="contact-heading">Got a governance<br/>problem worth <em>solving?</em></h2>
+  <div class="contact-links">
+    <a class="cl-email" href="mailto:sadeemalharthiksu@hotmail.com">sadeemalharthiksu@hotmail.com →</a>
+    <div class="contact-row">
+      <a class="cr-item" href="tel:+966545903278">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +966 54 590 3278
+      </a>
+      <a class="cr-item" href="mailto:sadeemalharthiksu@hotmail.com">
+        <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-left">
+    <div class="ft-dot"></div>
+    <span>© 2026 Sadeem Abdulrahman Alharthi</span>
+  </div>
+  <span>Designed with intent</span>
+</footer>
+
+<script>
+// Theme toggle
+const toggle = document.getElementById('themeToggle');
+const saved = localStorage.getItem('theme');
+if(saved === 'light') document.documentElement.classList.add('light');
+toggle.addEventListener('click', () => {
+  const isLight = document.documentElement.classList.toggle('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});
+
+// Intersection observer
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.jt-item,.exp-item,.disc-card,.cert-card,.course-item,.ach-row,.fade-in').forEach(el => io.observe(el));
+
+// Counter animation
+const counters = document.querySelectorAll('.nb-num[data-target]');
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.target;
+    const suffix = target === 40 ? '+' : target === 6 ? '+' : '';
+    let start = 0;
+    const dur = 1600;
+    const step = dur / target;
+    const timer = setInterval(() => {
+      start++;
+      el.textContent = start + suffix;
+      if(start >= target) clearInterval(timer);
+    }, step);
+    countObs.unobserve(el);
+  });
+},{threshold:0.5});
+counters.forEach(el => countObs.observe(el));
+</script>
+</body>
+</html>
