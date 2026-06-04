@@ -1,450 +1,529 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sadeem Alharthi — The Governance Architect</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500&family=Cairo:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<title>Sadeem Alharthi — Governance & Board Affairs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500&family=Cairo:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#0a0907;--ink2:#111009;--ink3:#1c1913;--ink4:#272318;
-  --gold:#c9a84c;--gold2:#e0c47a;--gold3:#f0dfa0;
-  --gold-dim:rgba(201,168,76,0.12);
-  --text:#e8e2d6;--text2:#a89e8a;--text3:#6b6050;
-  --line:rgba(201,168,76,0.14);--r:10px;--rl:16px;
-  --nav-bg:rgba(10,9,7,0.88);
+  /* Dark palette */
+  --bg:      #0d0f0e;
+  --bg2:     #131615;
+  --bg3:     #1a1e1c;
+  --bg4:     #222825;
+  --green:   #1e3d2f;
+  --green2:  #254d3b;
+  --green3:  #2e6049;
+  --gold:    #b89a4a;
+  --gold2:   #d4b46a;
+  --gold-dim:rgba(184,154,74,0.1);
+  --text:    #e8e4dc;
+  --text2:   #9a9488;
+  --text3:   #5e5a52;
+  --line:    rgba(184,154,74,0.12);
+  --line2:   rgba(255,255,255,0.06);
+  --nav-bg:  rgba(13,15,14,0.92);
+  --r:10px;--rl:14px;
 }
 html.light{
-  --ink:#f5f1e8;--ink2:#ede8dc;--ink3:#e4ddd0;--ink4:#dbd3c2;
-  --gold:#9a6f20;--gold2:#7d5815;--gold3:#5e4010;
-  --gold-dim:rgba(154,111,32,0.1);
-  --text:#1a1610;--text2:#4a3f2c;--text3:#8a7a60;
-  --line:rgba(154,111,32,0.15);--nav-bg:rgba(245,241,232,0.92);
+  --bg:#f7f6f2;--bg2:#eeece6;--bg3:#e5e1d8;--bg4:#dbd7cc;
+  --green:#1a3329;--green2:#1e3d30;--green3:#254a3a;
+  --gold:#8c6e28;--gold2:#6e5318;
+  --gold-dim:rgba(140,110,40,0.08);
+  --text:#16180f;--text2:#4a4840;--text3:#8a8478;
+  --line:rgba(140,110,40,0.14);--line2:rgba(0,0,0,0.06);
+  --nav-bg:rgba(247,246,242,0.94);
 }
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth}
 body{
   font-family:'Inter',sans-serif;
-  background:var(--ink);color:var(--text);
+  background:var(--bg);color:var(--text);
   overflow-x:hidden;line-height:1.7;
-  transition:background .35s,color .35s;
+  transition:background .3s,color .3s;
 }
 html[lang="ar"] body{font-family:'Cairo',sans-serif;}
 ::selection{background:var(--gold);color:#fff}
 
-/* ── LIGHT OVERRIDES ── */
-html.light h1.hero-name{color:#0f0d08;}
-html.light h1.hero-name em{color:var(--gold2);}
-html.light .mf-text{color:#1a1610;}
-html.light .mf-text strong{color:#0f0d08;}
-html.light .nb{background:var(--ink2);}
-html.light .nb-num{color:var(--gold);}
-html.light .ach-row{background:var(--ink2);}
-html.light .ach-row:hover{background:var(--ink3);}
-html.light .ach-idx{color:rgba(154,111,32,0.18);}
-html.light .vol-row{background:var(--ink2);}
-html.light .vol-row:hover{background:var(--ink3);}
-html.light .contact-heading{color:#0f0d08;}
-html.light .contact-heading em{color:var(--gold);}
-html.light .cl-email{color:var(--gold);}
-html.light footer{background:var(--ink2);}
-html.light .numbers-subtitle,
-html.light .journey-subtitle,
-html.light .exp-subtitle,
-html.light .disc-subtitle,
-html.light .cert-subtitle,
-html.light .ach-subtitle,
-html.light .vol-subtitle,
-html.light .jt-title,
-html.light .exp-role2,
-html.light .dc-title,
-html.light .cert-name2,
-html.light .ach-title2{color:#0f0d08;}
-
-/* ── NAV ── */
+/* ─ NAV ─ */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;justify-content:space-between;align-items:center;
-  padding:0 3rem;height:56px;
-  background:var(--nav-bg);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  transition:background .35s,border-color .35s;
+  padding:0 3rem;height:58px;
+  background:var(--nav-bg);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line2);
+  transition:background .3s;
 }
 .nav-logo{
   font-family:'Playfair Display',serif;font-size:15px;font-weight:500;
-  color:var(--gold2);letter-spacing:0.04em;
+  color:var(--text);letter-spacing:0.03em;
 }
 html[lang="ar"] .nav-logo{font-family:'Cairo',sans-serif;}
-.nav-links{display:flex;gap:1.5rem;align-items:center;}
-.nav-links a{
+.nav-mid{display:flex;gap:2rem;}
+.nav-mid a{
   font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--text3);text-decoration:none;transition:color .2s;
 }
-html[lang="ar"] .nav-links a{letter-spacing:0;font-size:12px;}
-.nav-links a:hover{color:var(--gold2);}
-.nav-pill{
+html[lang="ar"] .nav-mid a{letter-spacing:0;font-size:12px;}
+.nav-mid a:hover{color:var(--gold2);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-avail{
   font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
-  background:var(--gold-dim);color:var(--gold);
+  background:rgba(30,61,47,0.6);color:#6dbf94;
   padding:5px 12px;border-radius:20px;
-  border:1px solid rgba(201,168,76,0.25);white-space:nowrap;
+  border:1px solid rgba(30,97,58,0.3);white-space:nowrap;
 }
-html[lang="ar"] .nav-pill{letter-spacing:0;font-size:11px;}
-.nav-controls{display:flex;align-items:center;gap:10px;}
-
-/* theme toggle */
-.theme-toggle{
-  width:38px;height:22px;border-radius:11px;
-  border:1px solid var(--line);background:var(--ink3);
-  cursor:pointer;position:relative;transition:background .3s,border-color .3s;
-  flex-shrink:0;outline:none;
+html[lang="ar"] .nav-avail{letter-spacing:0;font-size:11px;}
+html.light .nav-avail{background:rgba(26,51,41,0.1);color:var(--green3);}
+.lang-btn{
+  font-size:11px;font-weight:500;
+  padding:5px 11px;border-radius:6px;
+  border:1px solid var(--line2);background:transparent;
+  color:var(--text2);cursor:pointer;transition:all .2s;
+  font-family:inherit;outline:none;
 }
-.theme-toggle::after{
-  content:'';position:absolute;top:3px;left:3px;
+.lang-btn:hover{border-color:var(--gold);color:var(--gold);}
+.theme-btn{
+  width:36px;height:20px;border-radius:10px;
+  border:1px solid var(--line2);background:var(--bg3);
+  cursor:pointer;position:relative;transition:background .3s;outline:none;
+}
+.theme-btn::after{
+  content:'';position:absolute;top:2px;left:2px;
   width:14px;height:14px;border-radius:50%;background:var(--gold);
-  transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
 }
-html.light .theme-toggle::after{transform:translateX(16px);}
-html[dir="rtl"] .theme-toggle::after{left:auto;right:3px;}
-html[dir="rtl"].light .theme-toggle::after{transform:translateX(-16px);}
+html.light .theme-btn::after{transform:translateX(16px);}
+html[dir="rtl"] .theme-btn::after{left:auto;right:2px;}
+html[dir="rtl"].light .theme-btn::after{transform:translateX(-16px);}
 
-/* lang toggle */
-.lang-toggle{
-  font-size:11px;font-weight:500;letter-spacing:0.06em;
-  padding:5px 12px;border-radius:20px;
-  border:1px solid var(--line);background:transparent;
-  color:var(--text2);cursor:pointer;transition:all .2s;outline:none;
-  font-family:inherit;
-}
-.lang-toggle:hover{border-color:var(--gold);color:var(--gold);}
-
-/* ── HERO ── */
+/* ─ HERO ─ */
 .hero{
   min-height:100vh;display:flex;flex-direction:column;
-  justify-content:flex-end;padding:0 3rem 4rem;
-  position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  justify-content:flex-end;padding:0 3rem 5rem;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line2);
 }
-.hero-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(201,168,76,0.06) 0%,transparent 70%),
-             radial-gradient(ellipse 40% 60% at 20% 80%,rgba(201,168,76,0.03) 0%,transparent 60%);
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 45% at 85% 25%, rgba(30,61,47,0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 55% at 15% 75%, rgba(184,154,74,0.05) 0%, transparent 60%);
 }
-.hero-num{
-  position:absolute;top:56px;right:3rem;
+.hero-watermark{
+  position:absolute;bottom:-2rem;right:2rem;
   font-family:'Playfair Display',serif;
-  font-size:clamp(180px,22vw,320px);font-weight:700;
-  color:rgba(201,168,76,0.04);line-height:1;
-  pointer-events:none;user-select:none;letter-spacing:-0.05em;
+  font-size:clamp(140px,18vw,260px);font-weight:700;
+  color:rgba(255,255,255,0.025);line-height:1;
+  pointer-events:none;user-select:none;letter-spacing:-0.04em;
 }
-html[dir="rtl"] .hero-num{right:auto;left:3rem;}
-.hero-content{position:relative;z-index:1;max-width:820px;}
-.hero-eyebrow{
-  display:flex;align-items:center;gap:12px;
-  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:2rem;padding-top:5rem;margin-top:56px;
+html[dir="rtl"] .hero-watermark{right:auto;left:2rem;}
+html.light .hero-watermark{color:rgba(0,0,0,0.03);}
+
+.hero-body{position:relative;z-index:1;max-width:900px;padding-top:5rem;margin-top:58px;}
+.hero-kicker{
+  display:flex;align-items:center;gap:14px;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2.5rem;
 }
-.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
-html[lang="ar"] .hero-eyebrow{letter-spacing:0;font-size:13px;}
-h1.hero-name{
+.hero-kicker-line{width:32px;height:1px;background:var(--gold);}
+html[lang="ar"] .hero-kicker{letter-spacing:0;font-size:12px;}
+
+h1.name{
   font-family:'Playfair Display',serif;
-  font-size:clamp(52px,8vw,100px);font-weight:700;
-  line-height:0.92;letter-spacing:-0.03em;color:#fff;margin-bottom:1rem;
+  font-size:clamp(48px,7.5vw,96px);font-weight:700;
+  line-height:0.93;letter-spacing:-0.025em;color:var(--text);
+  margin-bottom:1.5rem;
 }
-html[lang="ar"] h1.hero-name{font-family:'Cairo',sans-serif;letter-spacing:0;line-height:1.1;}
-h1.hero-name em{display:block;font-style:italic;color:var(--gold2);font-weight:400;}
-html[lang="ar"] h1.hero-name em{font-style:normal;}
-.hero-tagline{
-  font-size:clamp(13px,1.5vw,16px);color:var(--text2);
-  max-width:560px;line-height:1.8;margin-bottom:3rem;
-  border-left:2px solid var(--gold);padding-left:1.25rem;
+html[lang="ar"] h1.name{font-family:'Cairo',sans-serif;letter-spacing:0;line-height:1.1;}
+h1.name em{display:block;font-style:italic;font-weight:400;color:var(--gold2);}
+html[lang="ar"] h1.name em{font-style:normal;}
+
+.hero-statement{
+  font-size:clamp(14px,1.6vw,17px);color:var(--text2);
+  max-width:620px;line-height:1.75;margin-bottom:3rem;
+  padding-left:1.25rem;
+  border-left:2px solid var(--green3);
 }
-html[dir="rtl"] .hero-tagline{border-left:none;border-right:2px solid var(--gold);padding-left:0;padding-right:1.25rem;}
-.hero-meta{display:flex;flex-wrap:wrap;gap:2rem;font-size:12px;color:var(--text3);}
-.hm{display:flex;align-items:center;gap:8px;}
-.hm svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0;}
-.scroll-indicator{
+html[dir="rtl"] .hero-statement{padding-left:0;padding-right:1.25rem;border-left:none;border-right:2px solid var(--green3);}
+
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:3rem;}
+.htag{
+  font-size:11px;padding:5px 14px;border-radius:4px;
+  border:1px solid var(--line2);color:var(--text3);
+  background:var(--bg2);letter-spacing:0.04em;
+}
+html[lang="ar"] .htag{letter-spacing:0;font-size:12px;}
+
+.hero-contacts{display:flex;flex-wrap:wrap;gap:2rem;font-size:12px;color:var(--text3);}
+.hc{display:flex;align-items:center;gap:8px;}
+.hc svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0;}
+.scroll-hint{
   position:absolute;bottom:2.5rem;right:3rem;
-  display:flex;align-items:center;gap:10px;
-  font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
 }
-html[dir="rtl"] .scroll-indicator{right:auto;left:3rem;}
-.scroll-line{width:1px;height:40px;background:var(--gold);animation:scrollPulse 2s ease-in-out infinite;}
-@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
+html[dir="rtl"] .scroll-hint{right:auto;left:3rem;}
+.scroll-bar{width:1px;height:44px;background:var(--green3);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.9}}
+.scroll-label{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);}
+html[lang="ar"] .scroll-label{letter-spacing:0;font-size:10px;}
 
-/* ── MANIFESTO ── */
-.manifesto{padding:5rem 3rem;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
-.manifesto::before{
-  content:'"';position:absolute;top:-3rem;left:2rem;
-  font-family:'Playfair Display',serif;font-size:280px;font-weight:700;
-  color:rgba(201,168,76,0.05);line-height:1;pointer-events:none;
+/* ─ STATEMENT BAND ─ */
+.statement-band{
+  background:var(--green);padding:4rem 3rem;
+  border-bottom:1px solid var(--line2);
+  position:relative;overflow:hidden;
 }
-html[dir="rtl"] .manifesto::before{left:auto;right:2rem;content:'"';}
-.mf-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;}
-html[lang="ar"] .mf-label{letter-spacing:0;font-size:12px;}
-.mf-text{
+html.light .statement-band{background:var(--green);}
+.statement-band::before{
+  content:'"';position:absolute;top:-3rem;left:1.5rem;
+  font-family:'Playfair Display',serif;font-size:220px;font-weight:700;
+  color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;
+}
+html[dir="rtl"] .statement-band::before{left:auto;right:1.5rem;content:'"';}
+.sb-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(184,154,74,0.7);margin-bottom:1.5rem;}
+html[lang="ar"] .sb-label{letter-spacing:0;font-size:11px;}
+.sb-text{
   font-family:'Playfair Display',serif;
-  font-size:clamp(20px,2.5vw,30px);font-weight:400;font-style:italic;
-  color:var(--text);line-height:1.6;max-width:780px;
+  font-size:clamp(19px,2.4vw,28px);
+  font-weight:400;font-style:italic;
+  color:rgba(255,255,255,0.88);line-height:1.65;max-width:800px;
 }
-html[lang="ar"] .mf-text{font-family:'Cairo',sans-serif;font-style:normal;font-size:clamp(18px,2.2vw,26px);}
-.mf-text strong{font-style:normal;font-weight:700;color:#fff;}
-.mf-sig{margin-top:2rem;font-size:12px;color:var(--text3);letter-spacing:0.08em;}
-html[lang="ar"] .mf-sig{letter-spacing:0;}
+html[lang="ar"] .sb-text{font-family:'Cairo',sans-serif;font-style:normal;font-size:clamp(17px,2.1vw,24px);}
+.sb-text strong{font-style:normal;font-weight:600;color:#fff;}
+.sb-sig{margin-top:1.5rem;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;}
+html[lang="ar"] .sb-sig{letter-spacing:0;}
 
-/* ── NUMBERS ── */
-.numbers{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.section-label{
-  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:1rem;
-  display:flex;align-items:center;gap:12px;
+/* ─ SHARED PAGE WRAPPER ─ */
+.page{max-width:1080px;margin:0 auto;padding:5rem 3rem;}
+
+/* ─ SECTION HEADER ─ */
+.sh{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3rem;}
+.sh-index{
+  font-size:10px;letter-spacing:0.14em;color:var(--text3);
+  border:1px solid var(--line2);border-radius:50%;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-family:'Playfair Display',serif;
 }
-.section-label::before{
-  content:attr(data-num);font-size:10px;letter-spacing:0.1em;color:var(--text3);
-  border:1px solid var(--line);width:28px;height:28px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-html[lang="ar"] .section-label{letter-spacing:0;font-size:12px;}
-.numbers-subtitle,.journey-subtitle,.exp-subtitle,.disc-subtitle,.cert-subtitle,.ach-subtitle,.vol-subtitle{
+.sh-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(22px,3vw,36px);font-weight:500;color:#fff;line-height:1.3;
+  font-size:clamp(24px,3.2vw,38px);font-weight:500;color:var(--text);
+  letter-spacing:-0.01em;line-height:1.2;
 }
-html[lang="ar"] .numbers-subtitle,
-html[lang="ar"] .journey-subtitle,
-html[lang="ar"] .exp-subtitle,
-html[lang="ar"] .disc-subtitle,
-html[lang="ar"] .cert-subtitle,
-html[lang="ar"] .ach-subtitle,
-html[lang="ar"] .vol-subtitle{font-family:'Cairo',sans-serif;}
-.numbers-grid{
+html[lang="ar"] .sh-title{font-family:'Cairo',sans-serif;letter-spacing:0;}
+.sh-rule{flex:1;height:1px;background:var(--line2);min-width:20px;}
+.sh-note{font-size:11px;color:var(--text3);white-space:nowrap;letter-spacing:0.06em;}
+html[lang="ar"] .sh-note{letter-spacing:0;font-size:12px;}
+
+/* ─ METRICS ─ */
+.metrics-section{border-bottom:1px solid var(--line2);}
+.metrics-grid{
   display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--line);
-  border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;
-  margin-top:3rem;
+  border:1px solid var(--line2);border-radius:var(--rl);
+  overflow:hidden;background:var(--line2);gap:1px;
 }
-.nb{background:var(--ink2);padding:2.5rem 2rem;transition:background .25s;}
-.nb:hover{background:var(--ink3);}
-.nb-num{
+.metric{
+  background:var(--bg2);padding:2rem 1.5rem;
+  transition:background .2s;
+}
+.metric:hover{background:var(--bg3);}
+.metric-num{
   font-family:'Playfair Display',serif;
-  font-size:clamp(40px,5vw,64px);font-weight:700;line-height:1;
-  color:var(--gold2);margin-bottom:8px;
+  font-size:clamp(34px,4vw,52px);font-weight:700;
+  line-height:1;color:var(--gold2);margin-bottom:6px;
 }
-.nb-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);}
-.nb-sub{font-size:12px;color:var(--text3);margin-top:4px;opacity:.6;}
-html[lang="ar"] .nb-label{letter-spacing:0;font-size:12px;}
+.metric-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:3px;}
+.metric-sub{font-size:11px;color:var(--text3);opacity:.55;}
+html[lang="ar"] .metric-label{letter-spacing:0;font-size:12px;}
 
-/* ── JOURNEY ── */
-.journey{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.journey-head,.exp-head,.disc-head,.cert-head,.ach-head,.vol-head{margin-bottom:3rem;}
-.jt{display:flex;flex-direction:column;}
-.jt-item{
-  display:grid;grid-template-columns:100px 1fr;gap:2.5rem;
-  padding:2.5rem 0;border-bottom:1px solid var(--line);
-  opacity:0;transform:translateY(20px);
+/* ─ EXPERTISE ─ */
+.expertise-section{border-bottom:1px solid var(--line2);}
+.exp-pillars{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;background:var(--line2);
+  border:1px solid var(--line2);border-radius:var(--rl);overflow:hidden;
+}
+.ep{
+  background:var(--bg2);padding:1.8rem 1.4rem;
+  position:relative;overflow:hidden;
+  transition:background .2s;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1),background .2s;
+}
+.ep.vis{opacity:1;transform:translateY(0);}
+.ep:hover{background:var(--bg3);}
+.ep::before{
+  content:'';position:absolute;top:0;left:0;
+  width:2px;height:100%;background:var(--green3);opacity:0;
+  transition:opacity .2s;
+}
+html[dir="rtl"] .ep::before{left:auto;right:0;}
+.ep:hover::before{opacity:1;}
+.ep-num{
+  font-family:'Playfair Display',serif;
+  font-size:24px;font-weight:700;
+  color:rgba(184,154,74,0.15);line-height:1;margin-bottom:1rem;
+}
+.ep-name{font-size:13px;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:.5rem;}
+.ep-desc{font-size:11px;color:var(--text3);line-height:1.55;}
+
+/* ─ JOURNEY ─ */
+.journey-section{border-bottom:1px solid var(--line2);}
+.jt-list{}
+.jt-row{
+  display:grid;grid-template-columns:90px 1fr;gap:3rem;
+  padding:2.5rem 0;border-bottom:1px solid var(--line2);
+  opacity:0;transform:translateY(18px);
   transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);
 }
-.jt-item.vis{opacity:1;transform:translateY(0);}
-.jt-item:last-child{border-bottom:none;}
+.jt-row.vis{opacity:1;transform:translateY(0);}
+.jt-row:last-child{border-bottom:none;}
 .jt-year{
-  font-family:'Playfair Display',serif;font-size:18px;font-weight:500;
-  color:var(--gold);padding-top:4px;
+  font-family:'Playfair Display',serif;font-size:17px;
+  font-weight:500;color:var(--gold);padding-top:2px;
 }
-.jt-phase{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:6px;}
+.jt-phase{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:5px;}
 html[lang="ar"] .jt-phase{letter-spacing:0;font-size:11px;}
 .jt-title{
-  font-family:'Playfair Display',serif;font-size:20px;font-weight:500;
-  color:#fff;margin-bottom:10px;line-height:1.3;
+  font-family:'Playfair Display',serif;font-size:19px;font-weight:500;
+  color:var(--text);margin-bottom:8px;line-height:1.3;
 }
 html[lang="ar"] .jt-title{font-family:'Cairo',sans-serif;}
 .jt-desc{font-size:13px;color:var(--text2);line-height:1.75;}
 
-/* ── EXPERIENCE ── */
-.experience{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.exp-item{
-  padding:2.5rem 0;border-bottom:1px solid var(--line);
-  display:grid;grid-template-columns:200px 1fr;gap:3rem;
-  opacity:0;transform:translateY(20px);
+/* ─ EXPERIENCE ─ */
+.experience-section{border-bottom:1px solid var(--line2);}
+.work-item{
+  padding:2.5rem 0;border-bottom:1px solid var(--line2);
+  display:grid;grid-template-columns:210px 1fr;gap:3rem;
+  opacity:0;transform:translateY(18px);
   transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);
 }
-.exp-item.vis{opacity:1;transform:translateY(0);}
-.exp-item:last-child{border-bottom:none;}
-.exp-period{font-size:12px;color:var(--text3);margin-bottom:8px;line-height:1.5;}
-.exp-tags2{display:flex;flex-direction:column;gap:5px;margin-top:10px;}
-.etag{
+.work-item.vis{opacity:1;transform:translateY(0);}
+.work-item:last-child{border-bottom:none;}
+.wi-left{}
+.wi-period{font-size:12px;color:var(--text3);margin-bottom:10px;line-height:1.5;}
+.wi-tags{display:flex;flex-direction:column;gap:5px;}
+.wtag{
   display:inline-block;font-size:10px;padding:3px 9px;
-  border-radius:20px;border:1px solid;letter-spacing:0.04em;width:fit-content;
+  border-radius:4px;border:1px solid;letter-spacing:0.04em;width:fit-content;
 }
-html[lang="ar"] .etag{letter-spacing:0;font-size:11px;}
-.et-now{background:rgba(57,155,17,0.1);color:#7cc94a;border-color:rgba(57,155,17,0.25);}
-.et-pif{background:rgba(24,95,165,0.1);color:#6ab3f4;border-color:rgba(24,95,165,0.25);}
-.et-law{background:rgba(83,74,183,0.1);color:#a9a3f0;border-color:rgba(83,74,183,0.25);}
-.et-prop{background:rgba(153,60,29,0.1);color:#f0956b;border-color:rgba(153,60,29,0.25);}
-.exp-role2{
+html[lang="ar"] .wtag{letter-spacing:0;font-size:11px;}
+.wt-current{background:rgba(30,97,70,0.12);color:#6dbf94;border-color:rgba(30,97,70,0.3);}
+.wt-pif{background:rgba(24,95,165,0.1);color:#6ab3f4;border-color:rgba(24,95,165,0.25);}
+.wt-prop{background:rgba(153,60,29,0.1);color:#f0956b;border-color:rgba(153,60,29,0.25);}
+.wt-law{background:rgba(83,74,183,0.1);color:#a9a3f0;border-color:rgba(83,74,183,0.25);}
+.wi-right{}
+.wi-role{
   font-family:'Playfair Display',serif;font-size:20px;font-weight:500;
-  color:#fff;margin-bottom:4px;line-height:1.3;
+  color:var(--text);margin-bottom:3px;line-height:1.25;
 }
-html[lang="ar"] .exp-role2{font-family:'Cairo',sans-serif;}
-.exp-org2{font-size:13px;color:var(--gold);margin-bottom:1rem;font-weight:500;}
-.exp-duties2{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.exp-duties2 li{
+html[lang="ar"] .wi-role{font-family:'Cairo',sans-serif;}
+.wi-org{font-size:13px;color:var(--gold);margin-bottom:1rem;font-weight:500;}
+.wi-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.wi-list li{
   font-size:13px;color:var(--text2);line-height:1.65;
   display:flex;gap:12px;
 }
-.exp-duties2 li::before{content:'—';color:var(--text3);flex-shrink:0;}
+.wi-list li::before{content:'—';color:var(--text3);flex-shrink:0;margin-top:1px;}
+.wi-focus-title{
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--green3);margin-top:1.2rem;margin-bottom:.6rem;
+  display:flex;align-items:center;gap:8px;
+}
+html.light .wi-focus-title{color:var(--green2);}
+html[lang="ar"] .wi-focus-title{letter-spacing:0;font-size:11px;}
+.wi-focus-title::after{content:'';flex:1;height:1px;background:var(--line2);}
+.wi-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.wi-pill{
+  font-size:11px;padding:4px 10px;border-radius:4px;
+  background:var(--green);color:rgba(255,255,255,0.55);
+  border:1px solid rgba(30,61,47,0.5);
+}
+html.light .wi-pill{background:rgba(26,51,41,0.08);color:var(--green2);border-color:rgba(26,51,41,0.2);}
 
-/* ── DISCIPLINES ── */
-.disciplines{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.disc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+/* ─ CONTRIBUTIONS ─ */
+.contributions-section{border-bottom:1px solid var(--line2);}
+.contrib-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:var(--rl);overflow:hidden;}
+.cb{
+  background:var(--bg2);padding:2.5rem;
+  opacity:0;transform:translateY(18px);
+  transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1),background .2s;
+}
+.cb.vis{opacity:1;transform:translateY(0);}
+.cb:hover{background:var(--bg3);}
+.cb-num{
+  font-family:'Playfair Display',serif;font-size:44px;font-weight:700;
+  color:rgba(184,154,74,0.12);line-height:1;margin-bottom:1rem;
+}
+.cb-title{
+  font-family:'Playfair Display',serif;font-size:17px;font-weight:500;
+  color:var(--text);margin-bottom:.75rem;line-height:1.3;
+}
+html[lang="ar"] .cb-title{font-family:'Cairo',sans-serif;}
+.cb-text{font-size:13px;color:var(--text2);line-height:1.7;}
+
+/* ─ ACHIEVEMENTS ─ */
+.achievements-section{border-bottom:1px solid var(--line2);}
+.ach-list{display:flex;flex-direction:column;gap:1px;background:var(--line2);}
+.ach-item{
+  background:var(--bg2);padding:2.5rem 2.5rem;
+  display:grid;grid-template-columns:72px 1fr;gap:2rem;align-items:start;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .5s,transform .5s,background .2s;
+}
+.ach-item.vis{opacity:1;transform:translateY(0);}
+.ach-item:hover{background:var(--bg3);}
+.ach-idx{
+  font-family:'Playfair Display',serif;font-size:44px;font-weight:700;
+  line-height:1;color:rgba(184,154,74,0.18);
+}
+.ach-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:5px;}
+.ach-desc{font-size:13px;color:var(--text2);line-height:1.65;}
+
+/* ─ DISCIPLINES ─ */
+.disciplines-section{border-bottom:1px solid var(--line2);}
+.disc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
 .disc-card{
-  background:var(--ink2);border:1px solid var(--line);border-radius:var(--rl);
+  background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rl);
   padding:2rem;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1),border-color .25s;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1),border-color .2s;
 }
 .disc-card.vis{opacity:1;transform:translateY(0);}
-.disc-card:hover{border-color:rgba(201,168,76,0.3);}
-.dc-num{
-  font-family:'Playfair Display',serif;font-size:40px;font-weight:700;
-  color:rgba(201,168,76,0.15);line-height:1;margin-bottom:1rem;
+.disc-card:hover{border-color:rgba(184,154,74,0.25);}
+.dc-n{
+  font-family:'Playfair Display',serif;font-size:36px;font-weight:700;
+  color:rgba(184,154,74,0.12);line-height:1;margin-bottom:1rem;
 }
 .dc-title{
-  font-family:'Playfair Display',serif;font-size:18px;font-weight:500;
-  color:#fff;margin-bottom:1.2rem;line-height:1.3;
+  font-family:'Playfair Display',serif;font-size:17px;font-weight:500;
+  color:var(--text);margin-bottom:1.2rem;line-height:1.3;
 }
 html[lang="ar"] .dc-title{font-family:'Cairo',sans-serif;}
 .dc-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
 .dc-list li{
   font-size:12px;color:var(--text2);
-  display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;
+  display:flex;gap:8px;
+  border-bottom:1px solid var(--line2);padding-bottom:6px;
 }
 .dc-list li:last-child{border:none;padding:0;}
 .dc-list li::before{content:attr(data-i);color:var(--text3);font-size:10px;min-width:18px;margin-top:2px;}
 
-/* ── CERTIFICATIONS ── */
-.certifications{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.cert-tier-label{
-  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--text3);margin-bottom:1.5rem;
-}
-html[lang="ar"] .cert-tier-label{letter-spacing:0;font-size:11px;}
-.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-bottom:3rem;}
-.cert-card{
-  background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);
-  padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;
-  opacity:0;transform:translateY(16px);
+/* ─ CREDENTIALS ─ */
+.credentials-section{border-bottom:1px solid var(--line2);}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3rem;}
+.cred-card{
+  background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rl);
+  padding:1.75rem;display:flex;gap:1rem;align-items:flex-start;
+  opacity:0;transform:translateY(14px);
   transition:opacity .5s,transform .5s,border-color .2s;
 }
-.cert-card.vis{opacity:1;transform:translateY(0);}
-.cert-card:hover{border-color:rgba(201,168,76,0.3);}
-.cert-badge{
-  width:40px;height:40px;border-radius:8px;
-  background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);
+.cred-card.vis{opacity:1;transform:translateY(0);}
+.cred-card:hover{border-color:rgba(184,154,74,0.22);}
+.cred-badge{
+  width:42px;height:42px;border-radius:8px;
+  background:var(--gold-dim);border:1px solid rgba(184,154,74,0.18);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  font-size:10px;font-weight:500;color:var(--gold);text-align:center;line-height:1.2;
+  font-size:10px;font-weight:600;color:var(--gold);text-align:center;line-height:1.2;
 }
-.cert-name2{font-size:14px;font-weight:500;color:#fff;margin-bottom:2px;}
-html[lang="ar"] .cert-name2{font-size:13px;}
-.cert-org2{font-size:12px;color:var(--text3);}
-.courses-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
-.course-item{
-  display:flex;align-items:flex-start;gap:10px;padding:10px 14px;
-  background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);
+.cred-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;}
+.cred-org{font-size:11px;color:var(--text3);}
+.courses-tier-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:1.2rem;}
+html[lang="ar"] .courses-tier-label{letter-spacing:0;font-size:11px;}
+.courses-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.course-row{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:10px 14px;background:var(--bg2);
+  border:1px solid var(--line2);border-radius:8px;
   font-size:12px;color:var(--text2);
-  opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .4s,transform .4s,border-color .2s;
 }
-.course-item.vis{opacity:1;transform:translateY(0);}
-.ci-check{color:var(--gold);flex-shrink:0;font-size:11px;margin-top:1px;}
+.course-row.vis{opacity:1;transform:translateY(0);}
+.course-row:hover{border-color:rgba(184,154,74,0.2);}
+.cr-check{color:var(--green3);flex-shrink:0;font-size:11px;margin-top:1px;}
+html.light .cr-check{color:var(--green2);}
 
-/* ── ACHIEVEMENTS ── */
-.achievements{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.ach-items{display:flex;flex-direction:column;gap:1px;background:var(--line);}
-.ach-row{
-  background:var(--ink2);padding:2.5rem 2rem;
-  display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:start;
-  opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;
-}
-.ach-row.vis{opacity:1;transform:translateY(0);}
-.ach-row:hover{background:var(--ink3);}
-.ach-idx{
-  font-family:'Playfair Display',serif;font-size:48px;font-weight:700;
-  line-height:1;color:rgba(201,168,76,0.2);
-}
-.ach-title2{font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;}
-.ach-desc{font-size:13px;color:var(--text2);line-height:1.7;}
-
-/* ── VOLUNTEER ── */
-.volunteer{padding:5rem 3rem;border-bottom:1px solid var(--line);}
-.vol-items{display:flex;flex-direction:column;gap:1px;background:var(--line);}
+/* ─ COMMUNITY ─ */
+.community-section{border-bottom:1px solid var(--line2);}
+.vol-list{display:flex;flex-direction:column;gap:1px;background:var(--line2);}
 .vol-row{
-  background:var(--ink2);padding:1.2rem 2rem;
+  background:var(--bg2);padding:1.2rem 2rem;
   display:flex;gap:2rem;align-items:center;font-size:13px;
   transition:background .2s;
 }
-.vol-row:hover{background:var(--ink3);}
-.vr-year{color:var(--gold);min-width:50px;font-weight:500;}
-.vr-text{color:var(--text2);}
+.vol-row:hover{background:var(--bg3);}
+.vr-yr{color:var(--gold);min-width:48px;font-weight:500;font-size:12px;}
+.vr-txt{color:var(--text2);}
 
-/* ── CONTACT ── */
-.contact{padding:6rem 3rem;text-align:center;position:relative;overflow:hidden;}
-.contact::before{
-  content:'LET\'S TALK';
+/* ─ CONTACT ─ */
+.contact-section{padding:6rem 3rem;text-align:center;position:relative;overflow:hidden;}
+.contact-section::before{
+  content:'LET\'S WORK';
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   font-family:'Playfair Display',serif;
-  font-size:clamp(60px,12vw,160px);font-weight:700;
-  color:rgba(201,168,76,0.04);white-space:nowrap;pointer-events:none;
+  font-size:clamp(50px,11vw,148px);font-weight:700;
+  color:rgba(255,255,255,0.018);white-space:nowrap;pointer-events:none;
 }
-html[lang="ar"] .contact::before{content:'تواصل معي';}
-.contact-label{
+html[lang="ar"] .contact-section::before{content:'تواصل';}
+html.light .contact-section::before{color:rgba(0,0,0,0.025);}
+.cs-label{
   font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
   color:var(--gold);margin-bottom:1.5rem;
-  display:flex;align-items:center;justify-content:center;gap:12px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
 }
-.contact-label::before,.contact-label::after{content:'';width:28px;height:1px;background:var(--gold);}
-html[lang="ar"] .contact-label{letter-spacing:0;font-size:12px;}
-.contact-heading{
+.cs-label::before,.cs-label::after{content:'';width:28px;height:1px;background:var(--gold);}
+html[lang="ar"] .cs-label{letter-spacing:0;font-size:11px;}
+.cs-head{
   font-family:'Playfair Display',serif;
-  font-size:clamp(28px,5vw,56px);
-  font-weight:500;color:#fff;margin-bottom:1rem;line-height:1.2;
+  font-size:clamp(26px,4.5vw,52px);font-weight:500;
+  color:var(--text);line-height:1.2;margin-bottom:3rem;
 }
-html[lang="ar"] .contact-heading{font-family:'Cairo',sans-serif;}
-.contact-heading em{font-style:italic;color:var(--gold2);}
-html[lang="ar"] .contact-heading em{font-style:normal;}
-.contact-links{display:flex;flex-direction:column;gap:1rem;align-items:center;margin-top:3rem;}
-.cl-email{
+html[lang="ar"] .cs-head{font-family:'Cairo',sans-serif;}
+.cs-head em{font-style:italic;color:var(--gold2);}
+html[lang="ar"] .cs-head em{font-style:normal;}
+.cs-email{
   font-family:'Playfair Display',serif;
-  font-size:clamp(16px,2.5vw,24px);font-weight:400;color:var(--gold2);
-  text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.3);
-  padding-bottom:4px;transition:border-color .2s;
+  font-size:clamp(15px,2.2vw,22px);
+  color:var(--gold2);text-decoration:none;
+  border-bottom:1px solid rgba(184,154,74,0.3);
+  padding-bottom:4px;transition:border-color .2s;display:inline-block;
 }
-.cl-email:hover{border-color:var(--gold);}
-.contact-row{display:flex;gap:2.5rem;align-items:center;margin-top:1rem;justify-content:center;}
-.cr-item{
-  display:flex;align-items:center;gap:8px;font-size:13px;
-  color:var(--text3);text-decoration:none;transition:color .2s;
+.cs-email:hover{border-color:var(--gold);}
+.cs-row{display:flex;gap:2.5rem;justify-content:center;margin-top:1.5rem;}
+.cs-link{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--text3);text-decoration:none;transition:color .2s;
 }
-.cr-item:hover{color:var(--gold2);}
-.cr-item svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.cs-link:hover{color:var(--gold2);}
+.cs-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5;}
 
-/* ── FOOTER ── */
+/* ─ FOOTER ─ */
 footer{
-  background:var(--ink2);padding:1.5rem 3rem;
+  background:var(--bg2);padding:1.5rem 3rem;
   display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid var(--line);font-size:11px;color:var(--text3);
-  transition:background .35s;
+  border-top:1px solid var(--line2);font-size:11px;color:var(--text3);
+  transition:background .3s;
 }
 .ft-left{display:flex;align-items:center;gap:8px;}
-.ft-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.5;}
+.ft-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;}
 
-/* ── ANIMATIONS ── */
-.d1{transition-delay:.05s}.d2{transition-delay:.1s}.d3{transition-delay:.15s}
-.d4{transition-delay:.2s}.d5{transition-delay:.25s}.d6{transition-delay:.3s}
+/* ─ UTIL ─ */
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+.d4{transition-delay:.24s}.d5{transition-delay:.3s}.d6{transition-delay:.36s}
+.d7{transition-delay:.42s}.d8{transition-delay:.48s}.d9{transition-delay:.54s}
 
-/* ── RESPONSIVE ── */
 @media(max-width:768px){
   nav{padding:0 1.5rem;}
-  .nav-links a,.nav-pill{display:none;}
-  .hero,.manifesto,.numbers,.journey,.experience,.disciplines,.certifications,.achievements,.volunteer,.contact{padding-left:1.5rem;padding-right:1.5rem;}
-  .numbers-grid{grid-template-columns:1fr 1fr;}
-  .jt-item,.exp-item{grid-template-columns:1fr;gap:1rem;}
-  .disc-grid,.cert-grid,.courses-wrap{grid-template-columns:1fr;}
+  .nav-mid{display:none;}
+  .hero,.statement-band,.contact-section{padding-left:1.5rem;padding-right:1.5rem;}
+  .page{padding:3.5rem 1.5rem;}
+  .metrics-grid{grid-template-columns:1fr 1fr;}
+  .exp-pillars{grid-template-columns:1fr 1fr;}
+  .jt-row,.work-item{grid-template-columns:1fr;gap:1rem;}
+  .contrib-grid,.disc-grid,.cred-grid,.courses-grid{grid-template-columns:1fr;}
   footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}
 }
 </style>
@@ -454,504 +533,628 @@ footer{
 <!-- NAV -->
 <nav>
   <div class="nav-logo" data-en="Sadeem Alharthi" data-ar="سديم الحارثي">Sadeem Alharthi</div>
-  <div class="nav-links">
-    <a href="#journey" data-en="Journey" data-ar="الرحلة">Journey</a>
-    <a href="#experience" data-en="Work" data-ar="المسيرة">Work</a>
-    <a href="#certifications" data-en="Credentials" data-ar="الشهادات">Credentials</a>
+  <div class="nav-mid">
+    <a href="#expertise" data-en="Expertise" data-ar="التخصص">Expertise</a>
+    <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+    <a href="#credentials" data-en="Credentials" data-ar="المؤهلات">Credentials</a>
     <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
-    <span class="nav-pill" data-en="Available — 2026" data-ar="متاحة — 2026">Available — 2026</span>
-    <div class="nav-controls">
-      <button class="lang-toggle" id="langToggle">ع</button>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
-    </div>
+  </div>
+  <div class="nav-right">
+    <span class="nav-avail" data-en="Open to Opportunities" data-ar="متاحة للفرص">Open to Opportunities</span>
+    <button class="lang-btn" id="langBtn">ع</button>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"></button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-num">SA</div>
-  <div class="hero-content">
-    <div class="hero-eyebrow"
-      data-en="Board Secretariat Manager · New Murabba / PIF"
-      data-ar="مدير سكرتارية مجلس الإدارة · نيو مربع / صندوق الاستثمارات العامة">
-      Board Secretariat Manager · New Murabba / PIF
+  <div class="hero-glow"></div>
+  <div class="hero-watermark">SA</div>
+  <div class="hero-body">
+    <div class="hero-kicker">
+      <div class="hero-kicker-line"></div>
+      <span data-en="Governance &amp; Board Affairs — Riyadh, Saudi Arabia" data-ar="الحوكمة وشؤون مجلس الإدارة — الرياض، المملكة العربية السعودية">Governance &amp; Board Affairs — Riyadh, Saudi Arabia</span>
     </div>
-    <h1 class="hero-name">
+    <h1 class="name">
       <span data-en="Sadeem" data-ar="سديم">Sadeem</span>
       <em data-en="Alharthi." data-ar="الحارثي.">Alharthi.</em>
     </h1>
-    <p class="hero-tagline"
-      data-en="Six years turning boardrooms into precision instruments. I don't manage meetings — I architect governance. Every agenda, every minute, every framework is a decision that shapes how organizations move."
-      data-ar="ست سنوات من تحويل قاعات الاجتماعات إلى أدوات دقيقة. لا أدير اجتماعات — أُعمِّر الحوكمة. كل جدول أعمال، كل محضر، كل إطار عمل هو قرار يُشكّل مسار المؤسسات.">
-      Six years turning boardrooms into precision instruments. I don't manage meetings — I architect governance. Every agenda, every minute, every framework is a decision that shapes how organizations move.
+    <p class="hero-statement"
+      data-en="Governance and Board Affairs professional with experience across PIF portfolio companies and complex corporate environments, specialising in Board governance, executive coordination, corporate compliance, and Board Secretariat operations."
+      data-ar="متخصصة في الحوكمة وشؤون مجلس الإدارة، بخبرة في شركات محفظة صندوق الاستثمارات العامة والبيئات المؤسسية المعقدة، مع تخصص في حوكمة المجالس والتنسيق التنفيذي والامتثال المؤسسي وعمليات سكرتارية مجالس الإدارة.">
+      Governance and Board Affairs professional with experience across PIF portfolio companies and complex corporate environments, specialising in Board governance, executive coordination, corporate compliance, and Board Secretariat operations.
     </p>
-    <div class="hero-meta">
-      <div class="hm"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>sadeemalharthiksu@hotmail.com</div>
-      <div class="hm"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+966 54 590 3278</div>
-      <div class="hm"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-en="Riyadh, Saudi Arabia" data-ar="الرياض، المملكة العربية السعودية">Riyadh, Saudi Arabia</span></div>
-      <div class="hm"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span data-en="LL.B. King Saud University · GPA 4.56" data-ar="بكالوريوس الحقوق · جامعة الملك سعود · م.ت 4.56">LL.B. King Saud University · GPA 4.56</span></div>
+    <div class="hero-tags">
+      <span class="htag" data-en="Board Secretariat" data-ar="سكرتارية مجلس الإدارة">Board Secretariat</span>
+      <span class="htag" data-en="Corporate Governance" data-ar="الحوكمة المؤسسية">Corporate Governance</span>
+      <span class="htag" data-en="PIF Portfolio" data-ar="محفظة صندوق الاستثمارات">PIF Portfolio</span>
+      <span class="htag" data-en="Executive Coordination" data-ar="التنسيق التنفيذي">Executive Coordination</span>
+      <span class="htag" data-en="Governance Transformation" data-ar="التحول في الحوكمة">Governance Transformation</span>
+    </div>
+    <div class="hero-contacts">
+      <div class="hc"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>sadeemalharthiksu@hotmail.com</div>
+      <div class="hc"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+966 54 590 3278</div>
+      <div class="hc"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span data-en="LL.B. King Saud University — GPA 4.56 / 5.00" data-ar="بكالوريوس الحقوق — جامعة الملك سعود — م.ت 4.56">LL.B. King Saud University — GPA 4.56 / 5.00</span></div>
     </div>
   </div>
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    <span data-en="Scroll" data-ar="مرّر">Scroll</span>
+  <div class="scroll-hint">
+    <div class="scroll-bar"></div>
+    <div class="scroll-label" data-en="Scroll" data-ar="مرّر">Scroll</div>
   </div>
 </section>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="mf-label" data-en="The Manifesto" data-ar="البيان">The Manifesto</div>
-  <p class="mf-text"
-    data-en="I don't take minutes. <strong>I document decisions.</strong><br/>I don't manage boards. <strong>I enable governance.</strong><br/>Every framework I build is a promise to the organization — that the right people will decide the right things <strong>at the right time.</strong>"
-    data-ar="لا أكتب محاضر. <strong>أُوثِّق القرارات.</strong><br/>لا أدير مجالس. <strong>أُمَكِّن الحوكمة.</strong><br/>كل إطار عمل أبنيه هو وعد للمؤسسة — بأن الأشخاص المناسبين سيتخذون القرارات الصحيحة <strong>في الوقت الصحيح.</strong>">
-    I don't take minutes. <strong>I document decisions.</strong><br/>
-    I don't manage boards. <strong>I enable governance.</strong><br/>
-    Every framework I build is a promise to the organization — that the right people will decide the right things <strong>at the right time.</strong>
+<!-- STATEMENT BAND -->
+<section class="statement-band">
+  <div class="sb-label" data-en="Professional Statement" data-ar="البيان المهني">Professional Statement</div>
+  <p class="sb-text"
+    data-en="I don't just manage governance structures. <strong>I build them from the ground up.</strong> Every board resolution, every committee charter, every governance framework is a commitment to institutional excellence — ensuring the right decisions are made <strong>with the right rigour.</strong>"
+    data-ar="لا أدير هياكل الحوكمة فحسب. <strong>أبنيها من الصفر.</strong> كل قرار لمجلس الإدارة، كل ميثاق للجنة، كل إطار حوكمة هو التزام بالتميز المؤسسي — لضمان اتخاذ القرارات الصحيحة <strong>بالصرامة المناسبة.</strong>">
+    I don't just manage governance structures. <strong>I build them from the ground up.</strong> Every board resolution, every committee charter, every governance framework is a commitment to institutional excellence — ensuring the right decisions are made <strong>with the right rigour.</strong>
   </p>
-  <div class="mf-sig" data-en="— Sadeem Alharthi, 2026" data-ar="— سديم الحارثي، 2026">— Sadeem Alharthi, 2026</div>
+  <div class="sb-sig" data-en="— Sadeem Alharthi, Board Secretariat Manager · New Murabba / PIF" data-ar="— سديم الحارثي، مدير سكرتارية مجلس الإدارة · نيو مربع / صندوق الاستثمارات العامة">— Sadeem Alharthi, Board Secretariat Manager · New Murabba / PIF</div>
 </section>
 
-<!-- NUMBERS -->
-<section class="numbers" id="metrics">
-  <div class="numbers-head">
-    <div class="section-label" data-num="00" data-en="By the Numbers" data-ar="بالأرقام">By the Numbers</div>
-    <div class="numbers-subtitle" data-en="Six years. Three PIF mandates. No shortcuts." data-ar="ست سنوات. ثلاث مهام في صندوق الاستثمارات. بلا اختصارات.">Six years. Three PIF mandates. No shortcuts.</div>
-  </div>
-  <div class="numbers-grid">
-    <div class="nb">
-      <div class="nb-num" data-target="40">0</div>
-      <div class="nb-label" data-en="Legal Cases" data-ar="قضية قانونية">Legal Cases</div>
-      <div class="nb-sub" data-en="Favorable outcomes" data-ar="نتائج إيجابية">Favorable outcomes</div>
+<!-- METRICS -->
+<div class="page">
+  <section class="metrics-section">
+    <div class="sh">
+      <div class="sh-index">00</div>
+      <div class="sh-title" data-en="At a Glance" data-ar="نظرة عامة">At a Glance</div>
+      <div class="sh-rule"></div>
+      <div class="sh-note" data-en="Governance Metrics" data-ar="مقاييس الحوكمة">Governance Metrics</div>
     </div>
-    <div class="nb">
-      <div class="nb-num" data-target="6">0</div>
-      <div class="nb-label" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div>
-      <div class="nb-sub" data-en="Corporate and legal" data-ar="مؤسسي وقانوني">Corporate and legal</div>
+    <div class="metrics-grid">
+      <div class="metric"><div class="metric-num" data-target="7">0</div><div class="metric-label" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div><div class="metric-sub" data-en="Governance & Legal" data-ar="حوكمة وقانون">Governance & Legal</div></div>
+      <div class="metric"><div class="metric-num" data-target="2">0</div><div class="metric-label" data-en="PIF Companies" data-ar="شركات صندوق الاستثمارات">PIF Companies</div><div class="metric-sub" data-en="New Murabba · Ceer" data-ar="نيو مربع · سير">New Murabba · Ceer</div></div>
+      <div class="metric"><div class="metric-num" data-target="5">0</div><div class="metric-label" data-en="Board & Committee Structures" data-ar="هياكل مجالس ولجان">Board & Committee Structures</div><div class="metric-sub" data-en="Supported across mandates" data-ar="خلال المهام المختلفة">Supported across mandates</div></div>
+      <div class="metric"><div class="metric-num" data-val="1000+">0</div><div class="metric-label" data-en="Board Resolutions Managed" data-ar="قرارات مجلس مُدارة">Board Resolutions Managed</div><div class="metric-sub" data-en="Across all mandates" data-ar="عبر جميع المهام">Across all mandates</div></div>
+      <div class="metric"><div class="metric-num" data-val="1000+">0</div><div class="metric-label" data-en="Board Directions Managed" data-ar="توجيهات مجلس مُدارة">Board Directions Managed</div><div class="metric-sub"></div></div>
+      <div class="metric"><div class="metric-num" data-val="1000+">0</div><div class="metric-label" data-en="Committee Resolutions" data-ar="قرارات لجان">Committee Resolutions</div><div class="metric-sub"></div></div>
+      <div class="metric"><div class="metric-num" data-target="20">0</div><div class="metric-label" data-en="Meetings Annually" data-ar="اجتماعات سنوياً">Meetings Annually</div><div class="metric-sub" data-en="Coordinated & attended" data-ar="منسّقة وحضور">Coordinated & attended</div></div>
+      <div class="metric"><div class="metric-num" data-target="10">0</div><div class="metric-label" data-en="Governance Frameworks" data-ar="أطر حوكمة">Governance Frameworks</div><div class="metric-sub" data-en="Enhanced & developed" data-ar="مطوّرة ومحسّنة">Enhanced & developed</div></div>
+      <div class="metric"><div class="metric-num" data-target="40">0</div><div class="metric-label" data-en="Legal Cases" data-ar="قضايا قانونية">Legal Cases</div><div class="metric-sub" data-en="All favorable outcomes" data-ar="جميعها بنتائج إيجابية">All favorable outcomes</div></div>
+      <div class="metric"><div class="metric-num" data-target="2">0</div><div class="metric-label" data-en="Governance Depts Established" data-ar="إدارات حوكمة أُسِّست">Governance Depts Established</div><div class="metric-sub" data-en="Built from the ground up" data-ar="أُنشئت من الصفر">Built from the ground up</div></div>
+      <div class="metric"><div class="metric-num" data-target="16">0</div><div class="metric-label" data-en="Senior Leadership Engagements" data-ar="لقاءات القيادات التنفيذية العليا">Senior Leadership Engagements</div><div class="metric-sub" data-en="Royal & government level" data-ar="المستوى الملكي والحكومي">Royal & government level</div></div>
+      <div class="metric"><div class="metric-num" data-target="3">0</div><div class="metric-label" data-en="GRC Certifications" data-ar="شهادات حوكمة وامتثال">GRC Certifications</div><div class="metric-sub" data-en="GRCP · Compliance · LL.B" data-ar="GRCP · الامتثال · بكالوريوس الحقوق">GRCP · Compliance · LL.B</div></div>
     </div>
-    <div class="nb">
-      <div class="nb-num" data-target="3">0</div>
-      <div class="nb-label" data-en="PIF Mandates" data-ar="أدوار في صندوق الاستثمارات">PIF Mandates</div>
-      <div class="nb-sub" data-en="New Murabba · Ceer" data-ar="نيو مربع · سير">New Murabba · Ceer</div>
+  </section>
+</div>
+
+<!-- EXPERTISE -->
+<div class="page" id="expertise">
+  <section class="expertise-section">
+    <div class="sh">
+      <div class="sh-index">01</div>
+      <div class="sh-title" data-en="Key Expertise" data-ar="مجالات التخصص الرئيسية">Key Expertise</div>
+      <div class="sh-rule"></div>
     </div>
-    <div class="nb">
-      <div class="nb-num" data-target="2">0</div>
-      <div class="nb-label" data-en="GRC Credentials" data-ar="شهادات مهنية">GRC Credentials</div>
-      <div class="nb-sub" data-en="GRCP · Compliance" data-ar="GRCP · الامتثال">GRCP · Compliance</div>
+    <div class="exp-pillars">
+      <div class="ep">
+        <div class="ep-num">01</div>
+        <div class="ep-name" data-en="Board Governance" data-ar="حوكمة مجلس الإدارة">Board Governance</div>
+        <div class="ep-desc" data-en="End-to-end governance of Board and Committee operations across sovereign-backed environments." data-ar="حوكمة شاملة لعمليات مجالس الإدارة واللجان في البيئات ذات السيادة.">End-to-end governance of Board and Committee operations across sovereign-backed environments.</div>
+      </div>
+      <div class="ep d1">
+        <div class="ep-num">02</div>
+        <div class="ep-name" data-en="Board Secretariat" data-ar="سكرتارية مجلس الإدارة">Board Secretariat</div>
+        <div class="ep-desc" data-en="Establishing and leading Secretariat functions including meeting cycles, documentation, and resolution management." data-ar="تأسيس وقيادة وظائف السكرتارية بما يشمل دورات الاجتماعات والتوثيق وإدارة القرارات.">Establishing and leading Secretariat functions including meeting cycles, documentation, and resolution management.</div>
+      </div>
+      <div class="ep d2">
+        <div class="ep-num">03</div>
+        <div class="ep-name" data-en="Committee Management" data-ar="إدارة اللجان">Committee Management</div>
+        <div class="ep-desc" data-en="Structuring, supporting, and optimising multiple Board Committees with full governance rigour." data-ar="هيكلة ودعم وتحسين لجان مجلس الإدارة المتعددة بصرامة حوكمية كاملة.">Structuring, supporting, and optimising multiple Board Committees with full governance rigour.</div>
+      </div>
+      <div class="ep d3">
+        <div class="ep-num">04</div>
+        <div class="ep-name" data-en="Governance Frameworks" data-ar="أطر الحوكمة">Governance Frameworks</div>
+        <div class="ep-desc" data-en="Developing charters, policies, authority matrices, and governance structures aligned with best practice." data-ar="تطوير المواثيق والسياسات وجداول الصلاحيات وهياكل الحوكمة المتوافقة مع أفضل الممارسات.">Developing charters, policies, authority matrices, and governance structures aligned with best practice.</div>
+      </div>
+      <div class="ep d4">
+        <div class="ep-num">05</div>
+        <div class="ep-name" data-en="Executive Coordination" data-ar="التنسيق التنفيذي">Executive Coordination</div>
+        <div class="ep-desc" data-en="Direct engagement with Board members, C-suite executives, and government stakeholders on strategic matters." data-ar="التعامل المباشر مع أعضاء المجلس والمديرين التنفيذيين وأصحاب المصلحة الحكوميين في الشؤون الاستراتيجية.">Direct engagement with Board members, C-suite executives, and government stakeholders on strategic matters.</div>
+      </div>
+      <div class="ep d5">
+        <div class="ep-num">06</div>
+        <div class="ep-name" data-en="Corporate Compliance" data-ar="الامتثال المؤسسي">Corporate Compliance</div>
+        <div class="ep-desc" data-en="Ensuring full compliance with laws, regulations, governance codes, and SAMA/CMA requirements." data-ar="ضمان الامتثال الكامل للقوانين واللوائح وأنظمة الحوكمة ومتطلبات ساما وهيئة السوق المالية.">Ensuring full compliance with laws, regulations, governance codes, and SAMA/CMA requirements.</div>
+      </div>
+      <div class="ep d1">
+        <div class="ep-num">07</div>
+        <div class="ep-name" data-en="Stakeholder Management" data-ar="إدارة أصحاب المصلحة">Stakeholder Management</div>
+        <div class="ep-desc" data-en="Managing relations with shareholders, regulators, advisors, and senior leadership at institutional level." data-ar="إدارة العلاقات مع المساهمين والجهات التنظيمية والمستشارين والقيادات العليا على المستوى المؤسسي.">Managing relations with shareholders, regulators, advisors, and senior leadership at institutional level.</div>
+      </div>
+      <div class="ep d2">
+        <div class="ep-num">08</div>
+        <div class="ep-name" data-en="Board Reporting" data-ar="تقارير مجلس الإدارة">Board Reporting</div>
+        <div class="ep-desc" data-en="Producing governance reports, board packs, regulatory filings, and executive communications." data-ar="إنتاج تقارير الحوكمة وحقائب المجلس والإيداعات التنظيمية والمراسلات التنفيذية.">Producing governance reports, board packs, regulatory filings, and executive communications.</div>
+      </div>
+      <div class="ep d3">
+        <div class="ep-num">09</div>
+        <div class="ep-name" data-en="Governance Transformation" data-ar="التحول في الحوكمة">Governance Transformation</div>
+        <div class="ep-desc" data-en="Leading governance enhancement projects, operating model design, and process optimisation initiatives." data-ar="قيادة مشاريع تعزيز الحوكمة وتصميم نماذج التشغيل ومبادرات تحسين العمليات.">Leading governance enhancement projects, operating model design, and process optimisation initiatives.</div>
+      </div>
+      <div class="ep d4">
+        <div class="ep-num">10</div>
+        <div class="ep-name" data-en="Strategic Operations" data-ar="العمليات الاستراتيجية">Strategic Operations</div>
+        <div class="ep-desc" data-en="Translating board strategy into governance controls, tracking mechanisms, and operational structures." data-ar="ترجمة استراتيجية المجلس إلى ضوابط حوكمة وآليات متابعة وهياكل تشغيلية.">Translating board strategy into governance controls, tracking mechanisms, and operational structures.</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- JOURNEY -->
-<section class="journey" id="journey">
-  <div class="journey-head">
-    <div class="section-label" data-num="01" data-en="The Journey" data-ar="الرحلة">The Journey</div>
-    <div class="journey-subtitle" data-en="From first filing to governing a PIF flagship." data-ar="من أول قضية إلى قيادة حوكمة إحدى شركات الصندوق.">From first filing to governing a PIF flagship.</div>
-  </div>
-  <div class="jt">
-
-    <div class="jt-item">
-      <div class="jt-year">2018</div>
-      <div class="jt-content">
-        <div class="jt-phase" data-en="The Foundation" data-ar="التأسيس">The Foundation</div>
-        <div class="jt-title" data-en="First Case · Sharia Law · Legal Research" data-ar="أول قضية · الفقه الإسلامي · البحث القانوني">First Case · Sharia Law · Legal Research</div>
-        <div class="jt-desc"
-          data-en="Began at Abdulrahman Alharthi Law Firm — conducting case studies, drafting contracts, and providing consulting in both legal and sharia law. Learned that law is not about the code; it's about the consequences. Spent two years building the foundation that everything else would stand on."
-          data-ar="بدأت المسيرة في مكتب عبدالرحمن الحارثي للمحاماة — دراسة القضايا، صياغة العقود، وتقديم الاستشارات في القانون والفقه الإسلامي. تعلمت أن القانون ليس في النصوص؛ إنه في التبعات. سنتان لبناء الأساس الذي قام عليه كل شيء بعده.">
-          Began at Abdulrahman Alharthi Law Firm — conducting case studies, drafting contracts, and providing consulting in both legal and sharia law. Learned that law is not about the code; it's about the consequences. Spent two years building the foundation that everything else would stand on.
+<div class="page" id="journey">
+  <section class="journey-section">
+    <div class="sh">
+      <div class="sh-index">02</div>
+      <div class="sh-title" data-en="Career Journey" data-ar="المسيرة المهنية">Career Journey</div>
+      <div class="sh-rule"></div>
+      <div class="sh-note" data-en="2018 – Present" data-ar="2018 – حتى الآن">2018 – Present</div>
+    </div>
+    <div class="jt-list">
+      <div class="jt-row">
+        <div class="jt-year">2018</div>
+        <div>
+          <div class="jt-phase" data-en="Foundation" data-ar="التأسيس">Foundation</div>
+          <div class="jt-title" data-en="Legal Training · Sharia Law · Case Management" data-ar="التدريب القانوني · الفقه الإسلامي · إدارة القضايا">Legal Training · Sharia Law · Case Management</div>
+          <div class="jt-desc"
+            data-en="Began at Abdulrahman Alharthi Law Firm — building foundational competencies in legal drafting, case research, contract preparation, and sharia law consulting. Two formative years that established the rigour, precision, and analytical discipline that would define the career ahead."
+            data-ar="بدأت المسيرة في مكتب عبدالرحمن الحارثي للمحاماة — لبناء الكفاءات الأساسية في الصياغة القانونية وبحث القضايا وإعداد العقود والاستشارات الشرعية. سنتان تأسيسيتان رسّختا الصرامة والدقة والانضباط التحليلي الذي سيُميّز المسيرة المهنية.">
+            Began at Abdulrahman Alharthi Law Firm — building foundational competencies in legal drafting, case research, contract preparation, and sharia law consulting. Two formative years that established the rigour, precision, and analytical discipline that would define the career ahead.
+          </div>
+        </div>
+      </div>
+      <div class="jt-row">
+        <div class="jt-year">2020</div>
+        <div>
+          <div class="jt-phase" data-en="Legal Practice" data-ar="الممارسة القانونية">Legal Practice</div>
+          <div class="jt-title" data-en="LL.B. Graduation · Courtroom Representation · 40+ Cases" data-ar="التخرج ببكالوريوس الحقوق · التمثيل أمام المحاكم · +40 قضية">LL.B. Graduation · Courtroom Representation · 40+ Cases</div>
+          <div class="jt-desc"
+            data-en="Graduated from King Saud University with First Class distinction (GPA 4.56). Joined Mohammed Almarshad Law Firm — handling over 40 cases to successful resolution across civil and corporate matters. Earned GRCP and Compliance Foundations certifications. The turning point: governance was identified as the professional destination."
+            data-ar="تخرّجت من جامعة الملك سعود بتقدير ممتاز (م.ت 4.56). انضمت إلى مكتب محمد المرشد للمحاماة وأنجزت أكثر من 40 قضية بنجاح في المجالات المدنية والمؤسسية. حصلت على شهادتي GRCP وأسس الامتثال. نقطة التحول: تحديد الحوكمة كوجهة مهنية.">
+            Graduated from King Saud University with First Class distinction (GPA 4.56). Joined Mohammed Almarshad Law Firm — handling over 40 cases to successful resolution across civil and corporate matters. Earned GRCP and Compliance Foundations certifications. The turning point: governance was identified as the professional destination.
+          </div>
+        </div>
+      </div>
+      <div class="jt-row">
+        <div class="jt-year">2021</div>
+        <div>
+          <div class="jt-phase" data-en="Corporate Transition" data-ar="الانتقال المؤسسي">Corporate Transition</div>
+          <div class="jt-title" data-en="Majid Al Futtaim · Board Affairs · Regional Operations" data-ar="ماجد الفطيم · شؤون المجلس · العمليات الإقليمية">Majid Al Futtaim · Board Affairs · Regional Operations</div>
+          <div class="jt-desc"
+            data-en="Joined Majid Al Futtaim Properties as Paralegal — managing Board and Committee governance, negotiating with government authorities, and serving as acting member of the MAF Group management team in Kuwait. First direct exposure to large-scale Board Secretariat operations and executive-level governance."
+            data-ar="انضمت إلى ماجد الفطيم للعقارات مساعدة قانونية — إدارة حوكمة المجلس واللجان والتفاوض مع الجهات الحكومية والتمثيل الفعلي في فريق إدارة مجموعة ماجد الفطيم بالكويت. أول تعرّض مباشر لعمليات سكرتارية مجلس الإدارة على نطاق واسع والحوكمة على المستوى التنفيذي.">
+            Joined Majid Al Futtaim Properties as Paralegal — managing Board and Committee governance, negotiating with government authorities, and serving as acting member of the MAF Group management team in Kuwait. First direct exposure to large-scale Board Secretariat operations and executive-level governance.
+          </div>
+        </div>
+      </div>
+      <div class="jt-row">
+        <div class="jt-year">2022</div>
+        <div>
+          <div class="jt-phase" data-en="PIF Entry" data-ar="الانضمام لصندوق الاستثمارات">PIF Entry</div>
+          <div class="jt-title" data-en="Ceer · PIF × Foxconn · Sovereign Corporate Governance" data-ar="سير · صندوق الاستثمارات × فوكسكون · حوكمة مؤسسية سيادية">Ceer · PIF × Foxconn · Sovereign Corporate Governance</div>
+          <div class="jt-desc"
+            data-en="Joined Ceer National Automotive Company — a strategic PIF and Foxconn joint venture — as Senior Corporate Governance Specialist. Led shareholder affairs, coordinated general assemblies, and supported governance advisory across one of Saudi Arabia's most prominent industrial mandates. Entry into sovereign-backed governance at scale."
+            data-ar="انضمت إلى شركة سير للسيارات الوطنية — مشروع استراتيجي مشترك بين صندوق الاستثمارات العامة وفوكسكون — أخصائية أولى للحوكمة المؤسسية. قادت شؤون المساهمين، نسّقت الجمعيات العامة، ودعمت المشورة الحوكمية في واحدة من أبرز المهام الصناعية في المملكة. الدخول إلى الحوكمة السيادية على نطاق واسع.">
+            Joined Ceer National Automotive Company — a strategic PIF and Foxconn joint venture — as Senior Corporate Governance Specialist. Led shareholder affairs, coordinated general assemblies, and supported governance advisory across one of Saudi Arabia's most prominent industrial mandates. Entry into sovereign-backed governance at scale.
+          </div>
+        </div>
+      </div>
+      <div class="jt-row">
+        <div class="jt-year">2024</div>
+        <div>
+          <div class="jt-phase" data-en="Leadership Mandate" data-ar="المهمة القيادية">Leadership Mandate</div>
+          <div class="jt-title" data-en="New Murabba · Board Secretariat Manager · PIF Flagship" data-ar="نيو مربع · مدير سكرتارية مجلس الإدارة · التحفة الرائدة لصندوق الاستثمارات">New Murabba · Board Secretariat Manager · PIF Flagship</div>
+          <div class="jt-desc"
+            data-en="Appointed to build and lead the Board Secretariat function at New Murabba — a landmark PIF development redefining Riyadh's urban future. Promoted from Assistant Manager to Manager within two years. Today: accountable for the full governance framework, Delegation of Authority, Board and Committee support, and governance transformation programmes."
+            data-ar="تم تعيينها لبناء وقيادة وظيفة سكرتارية مجلس الإدارة في نيو مربع — المشروع التحولي الرائد لصندوق الاستثمارات العامة الذي يُعيد تعريف مستقبل الرياض العمراني. رُقِّيت من مساعد مدير إلى مدير في غضون عامين. اليوم: مسؤولة عن إطار الحوكمة الكامل وتفويض الصلاحيات ودعم المجلس واللجان وبرامج التحول في الحوكمة.">
+            Appointed to build and lead the Board Secretariat function at New Murabba — a landmark PIF development redefining Riyadh's urban future. Promoted from Assistant Manager to Manager within two years. Today: accountable for the full governance framework, Delegation of Authority, Board and Committee support, and governance transformation programmes.
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="jt-item">
-      <div class="jt-year">2020</div>
-      <div class="jt-content">
-        <div class="jt-phase" data-en="The Practice" data-ar="الممارسة">The Practice</div>
-        <div class="jt-title" data-en="LL.B. · Courtrooms · Legal Advisory" data-ar="بكالوريوس الحقوق · قاعات المحاكم · الاستشارات القانونية">LL.B. · Courtrooms · Legal Advisory</div>
-        <div class="jt-desc"
-          data-en="Graduated from King Saud University with a 4.56 GPA. Moved immediately to Mohammed Almarshad Law Firm as Trainee Lawyer — drafting pleadings, representing clients in trials, and handling 40+ cases to successful resolution. Earned GRCP and Compliance Foundations certifications. Discovered that governance was where law became strategy."
-          data-ar="تخرجت من جامعة الملك سعود بمعدل 4.56. انتقلت فوراً إلى مكتب محمد المرشد للمحاماة محامية متدربة — صياغة اللوائح، تمثيل الموكلين أمام المحاكم، ومعالجة أكثر من 40 قضية بنجاح. حصلت على شهادتي GRCP وأسس الامتثال. اكتشفت أن الحوكمة هي المكان الذي يتحول فيه القانون إلى استراتيجية.">
-          Graduated from King Saud University with a 4.56 GPA. Moved immediately to Mohammed Almarshad Law Firm as Trainee Lawyer — drafting pleadings, representing clients in trials, and handling 40+ cases to successful resolution. Earned GRCP and Compliance Foundations certifications. Discovered that governance was where law became strategy.
-        </div>
-      </div>
-    </div>
-
-    <div class="jt-item">
-      <div class="jt-year">2021</div>
-      <div class="jt-content">
-        <div class="jt-phase" data-en="The Pivot" data-ar="التحول">The Pivot</div>
-        <div class="jt-title" data-en="Majid Al Futtaim · Board Affairs · Kuwait" data-ar="ماجد الفطيم · شؤون مجلس الإدارة · الكويت">Majid Al Futtaim · Board Affairs · Kuwait</div>
-        <div class="jt-desc"
-          data-en="Joined Majid Al Futtaim Properties as Paralegal — drafting contracts, negotiating with government entities, and managing Board Committees. Led Kuwait operations as acting member of the MAF Group management team. The moment legal drafting met corporate governance, and I knew exactly where I belonged."
-          data-ar="انضمت إلى ماجد الفطيم للعقارات مساعدة قانونية — صياغة العقود، التفاوض مع الجهات الحكومية، وإدارة لجان مجلس الإدارة. قدت عمليات الكويت عضواً فعلياً في فريق إدارة مجموعة ماجد الفطيم. اللحظة التي التقت فيها الصياغة القانونية بالحوكمة المؤسسية، وعرفت تماماً أين أنتمي.">
-          Joined Majid Al Futtaim Properties as Paralegal — drafting contracts, negotiating with government entities, and managing Board Committees. Led Kuwait operations as acting member of the MAF Group management team. The moment legal drafting met corporate governance, and I knew exactly where I belonged.
-        </div>
-      </div>
-    </div>
-
-    <div class="jt-item">
-      <div class="jt-year">2022</div>
-      <div class="jt-content">
-        <div class="jt-phase" data-en="The Ascent" data-ar="الصعود">The Ascent</div>
-        <div class="jt-title" data-en="Ceer PIF × Foxconn · Governance at Scale" data-ar="سير — صندوق الاستثمارات × فوكسكون · حوكمة على نطاق واسع">Ceer PIF × Foxconn · Governance at Scale</div>
-        <div class="jt-desc"
-          data-en="Joined Ceer National Automotive Company — a joint venture between PIF and Foxconn — as Senior Corporate Governance Specialist. Managed shareholder relations, coordinated general assemblies, and prepared regulatory filings for one of Saudi Arabia's most high-profile industrial ventures. Operating at the intersection of national vision and corporate reality."
-          data-ar="انضمت إلى شركة سير للسيارات الوطنية — مشروع مشترك بين صندوق الاستثمارات العامة وفوكسكون — أخصائية أولى لحوكمة الشركات. أدرت علاقات المساهمين، نسّقت الجمعيات العامة، وأعددت الإفصاحات التنظيمية لواحدة من أبرز المشاريع الصناعية في المملكة. العمل في تقاطع الرؤية الوطنية والواقع المؤسسي.">
-          Joined Ceer National Automotive Company — a joint venture between PIF and Foxconn — as Senior Corporate Governance Specialist. Managed shareholder relations, coordinated general assemblies, and prepared regulatory filings for one of Saudi Arabia's most high-profile industrial ventures. Operating at the intersection of national vision and corporate reality.
-        </div>
-      </div>
-    </div>
-
-    <div class="jt-item">
-      <div class="jt-year">2024</div>
-      <div class="jt-content">
-        <div class="jt-phase" data-en="The Mandate" data-ar="المهمة">The Mandate</div>
-        <div class="jt-title" data-en="New Murabba PIF · Board Secretariat Leadership" data-ar="نيو مربع — صندوق الاستثمارات · قيادة سكرتارية المجلس">New Murabba PIF · Board Secretariat Leadership</div>
-        <div class="jt-desc"
-          data-en="Brought in to build the Board Secretariat function at New Murabba — a landmark PIF development redefining Riyadh's future. Promoted from Assistant Manager to Manager in under two years. Today: leading the full governance framework, Delegation of Authority, and providing comprehensive support to the Board of Directors and all its Committees."
-          data-ar="جُلِبت لبناء وظيفة سكرتارية مجلس الإدارة في نيو مربع — مشروع صندوق الاستثمارات العامة التحولي الذي يُعيد تشكيل مستقبل الرياض. رُقِّيت من مساعد مدير إلى مدير في أقل من عامين. اليوم: قيادة إطار الحوكمة الكامل، تفويض الصلاحيات، وتقديم الدعم الشامل لمجلس الإدارة وجميع لجانه.">
-          Brought in to build the Board Secretariat function at New Murabba — a landmark PIF development redefining Riyadh's future. Promoted from Assistant Manager to Manager in under two years. Today: leading the full governance framework, Delegation of Authority, and providing comprehensive support to the Board of Directors and all its Committees.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <div class="exp-head">
-    <div class="section-label" data-num="02" data-en="Work" data-ar="المسيرة المهنية">Work</div>
-    <div class="exp-subtitle" data-en="Where I've built governance." data-ar="حيث بنيت الحوكمة.">Where I've built governance.</div>
-  </div>
+<div class="page" id="experience">
+  <section class="experience-section">
+    <div class="sh">
+      <div class="sh-index">03</div>
+      <div class="sh-title" data-en="Professional Experience" data-ar="الخبرة المهنية">Professional Experience</div>
+      <div class="sh-rule"></div>
+    </div>
 
-  <div class="exp-item">
-    <div class="exp-left">
-      <div class="exp-period" data-en="Jan 2026 – Present<br/>Riyadh · Full-time" data-ar="يناير 2026 – حتى الآن<br/>الرياض · دوام كامل">Jan 2026 – Present<br/>Riyadh · Full-time</div>
-      <div class="exp-tags2">
-        <span class="etag et-now" data-en="Current" data-ar="الدور الحالي">Current</span>
-        <span class="etag et-pif">PIF</span>
+    <div class="work-item">
+      <div class="wi-left">
+        <div class="wi-period" data-en="Jan 2026 – Present<br/>Riyadh · Full-time" data-ar="يناير 2026 – حتى الآن<br/>الرياض · دوام كامل">Jan 2026 – Present<br/>Riyadh · Full-time</div>
+        <div class="wi-tags">
+          <span class="wtag wt-current" data-en="Current" data-ar="الدور الحالي">Current</span>
+          <span class="wtag wt-pif">PIF</span>
+        </div>
+      </div>
+      <div class="wi-right">
+        <div class="wi-role" data-en="Board Secretariat Manager" data-ar="مدير سكرتارية مجلس الإدارة">Board Secretariat Manager</div>
+        <div class="wi-org" data-en="New Murabba Development Company — PIF Subsidiary" data-ar="شركة نيو مربع للتطوير — شركة تابعة لصندوق الاستثمارات العامة">New Murabba Development Company — PIF Subsidiary</div>
+        <ul class="wi-list">
+          <li data-en="Leads the Board Secretariat function, providing comprehensive governance support to the Board of Directors and all affiliated Committees — covering the full meeting lifecycle, agenda management, board pack preparation, minutes, and formal documentation of decisions and actions." data-ar="تقود وظيفة سكرتارية مجلس الإدارة، وتقدم دعم الحوكمة الشامل لمجلس الإدارة وجميع اللجان المنبثقة — شاملاً دورة الاجتماع الكاملة وإدارة جداول الأعمال وإعداد حقائب المجلس والمحاضر والتوثيق الرسمي للقرارات والإجراءات.">Leads the Board Secretariat function, providing comprehensive governance support to the Board of Directors and all affiliated Committees — covering the full meeting lifecycle, agenda management, board pack preparation, minutes, and formal documentation of decisions and actions.</li>
+          <li data-en="Oversees and implements corporate governance policies, procedures, and best practices ensuring compliance with applicable laws, regulations, governance codes, and Saudi regulatory requirements." data-ar="تشرف على سياسات الحوكمة المؤسسية وإجراءاتها وأفضل ممارساتها وتطبّقها لضمان الامتثال للقوانين واللوائح وأنظمة الحوكمة والمتطلبات التنظيمية السعودية.">Oversees and implements corporate governance policies, procedures, and best practices ensuring compliance with applicable laws, regulations, governance codes, and Saudi regulatory requirements.</li>
+          <li data-en="Develops, implements, and maintains the Delegation of Authority framework; advises management on governance interpretation and policy application." data-ar="تطوّر إطار تفويض الصلاحيات وتطبّقه وتحتفظ به؛ وتقدّم المشورة للإدارة بشأن تفسير الحوكمة وتطبيق السياسات.">Develops, implements, and maintains the Delegation of Authority framework; advises management on governance interpretation and policy application.</li>
+          <li data-en="Manages shareholder relations, coordinates AGMs and EGMs, and ensures full legal compliance across all Board affairs and corporate disclosures." data-ar="تدير علاقات المساهمين، تنسّق الجمعيات العامة العادية وغير العادية، وتضمن الامتثال القانوني الكامل في جميع شؤون المجلس والإفصاحات المؤسسية.">Manages shareholder relations, coordinates AGMs and EGMs, and ensures full legal compliance across all Board affairs and corporate disclosures.</li>
+        </ul>
+        <div class="wi-focus-title" data-en="Focus Areas" data-ar="محاور العمل">Focus Areas</div>
+        <div class="wi-pills">
+          <span class="wi-pill" data-en="Board Secretariat Leadership" data-ar="قيادة سكرتارية المجلس">Board Secretariat Leadership</span>
+          <span class="wi-pill" data-en="Governance Frameworks" data-ar="أطر الحوكمة">Governance Frameworks</span>
+          <span class="wi-pill" data-en="Board and Committee Governance" data-ar="حوكمة المجالس واللجان">Board and Committee Governance</span>
+          <span class="wi-pill" data-en="Governance Transformation" data-ar="التحول في الحوكمة">Governance Transformation</span>
+          <span class="wi-pill" data-en="Delegation of Authority" data-ar="تفويض الصلاحيات">Delegation of Authority</span>
+          <span class="wi-pill" data-en="Executive Stakeholder Engagement" data-ar="إشراك أصحاب المصلحة التنفيذيين">Executive Stakeholder Engagement</span>
+        </div>
       </div>
     </div>
-    <div class="exp-right">
-      <div class="exp-role2" data-en="Board Secretariat Manager" data-ar="مدير سكرتارية مجلس الإدارة">Board Secretariat Manager</div>
-      <div class="exp-org2" data-en="New Murabba Development Company — PIF Subsidiary" data-ar="شركة نيو مربع للتطوير — شركة تابعة لصندوق الاستثمارات العامة">New Murabba Development Company — PIF Subsidiary</div>
-      <ul class="exp-duties2">
-        <li data-en="Leads the full Board Secretariat function — comprehensive support to the Board of Directors and all affiliated Committees including scheduling, agendas, materials, minutes, and formal documentation of decisions." data-ar="تقود وظيفة سكرتارية مجلس الإدارة بالكامل — دعم شامل لمجلس الإدارة وجميع اللجان المنبثقة عنه بما يشمل الجدولة وجداول الأعمال والمواد والمحاضر والتوثيق الرسمي للقرارات.">Leads the full Board Secretariat function — comprehensive support to the Board of Directors and all affiliated Committees including scheduling, agendas, materials, minutes, and formal documentation of decisions.</li>
-        <li data-en="Oversees corporate governance policies and the Delegation of Authority framework ensuring full compliance with laws, regulations, and governance codes." data-ar="تشرف على سياسات الحوكمة المؤسسية وإطار تفويض الصلاحيات لضمان الامتثال الكامل للقوانين واللوائح وأنظمة الحوكمة.">Oversees corporate governance policies and the Delegation of Authority framework ensuring full compliance with laws, regulations, and governance codes.</li>
-        <li data-en="Manages shareholder relations, coordinates AGMs, and ensures legal compliance across all Board affairs." data-ar="تدير علاقات المساهمين، وتنسّق الجمعيات العامة السنوية، وتضمن الامتثال القانوني في جميع شؤون المجلس.">Manages shareholder relations, coordinates AGMs, and ensures legal compliance across all Board affairs.</li>
-        <li data-en="Prepares corporate disclosures: annual reports, proxy statements, and regulatory filings with accurate and timely submission." data-ar="تُعد الإفصاحات المؤسسية: التقارير السنوية والبيانات التوكيلية والإيداعات التنظيمية مع الالتزام بالدقة والمواعيد.">Prepares corporate disclosures: annual reports, proxy statements, and regulatory filings with accurate and timely submission.</li>
-        <li data-en="Provides guidance to employees and management on policy interpretation, application, and governance inquiries." data-ar="تقدم التوجيه للموظفين والإدارة بشأن تفسير السياسات وتطبيقها والاستفسارات المتعلقة بالحوكمة.">Provides guidance to employees and management on policy interpretation, application, and governance inquiries.</li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="exp-item">
-    <div class="exp-left">
-      <div class="exp-period" data-en="Jan 2024 – Dec 2025<br/>Riyadh · Full-time" data-ar="يناير 2024 – ديسمبر 2025<br/>الرياض · دوام كامل">Jan 2024 – Dec 2025<br/>Riyadh · Full-time</div>
-      <div class="exp-tags2"><span class="etag et-pif">PIF</span></div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-role2" data-en="Board Secretariat and Corporate Governance Assistant Manager" data-ar="مساعد مدير سكرتارية مجلس الإدارة والحوكمة المؤسسية">Board Secretariat and Corporate Governance Assistant Manager</div>
-      <div class="exp-org2" data-en="New Murabba Development Company — PIF Subsidiary" data-ar="شركة نيو مربع للتطوير — شركة تابعة لصندوق الاستثمارات العامة">New Murabba Development Company — PIF Subsidiary</div>
-      <ul class="exp-duties2">
-        <li data-en="Supported the Board and all affiliated Committees: scheduling, agenda preparation, material review, minutes drafting, and full documentation and distribution of decisions." data-ar="دعم المجلس وجميع اللجان المنبثقة: الجدولة، إعداد جداول الأعمال، مراجعة المواد، صياغة المحاضر، والتوثيق الكامل وتوزيع القرارات.">Supported the Board and all affiliated Committees: scheduling, agenda preparation, material review, minutes drafting, and full documentation and distribution of decisions.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-left">
-      <div class="exp-period" data-en="Aug 2022 – Dec 2023<br/>Riyadh · Full-time" data-ar="أغسطس 2022 – ديسمبر 2023<br/>الرياض · دوام كامل">Aug 2022 – Dec 2023<br/>Riyadh · Full-time</div>
-      <div class="exp-tags2"><span class="etag et-pif">PIF</span></div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-role2" data-en="Senior Corporate Governance Specialist" data-ar="أخصائي أول للحوكمة المؤسسية">Senior Corporate Governance Specialist</div>
-      <div class="exp-org2" data-en="Ceer National Automotive Company — PIF and Foxconn JV" data-ar="شركة سير للسيارات الوطنية — مشروع مشترك بين صندوق الاستثمارات العامة وفوكسكون">Ceer National Automotive Company — PIF and Foxconn JV</div>
-      <ul class="exp-duties2">
-        <li data-en="Managed shareholder relations, facilitated communication, and coordinated general assemblies including AGMs in full legal compliance." data-ar="أدارت علاقات المساهمين، ونسّقت الجمعيات العامة بما فيها السنوية وفق الامتثال القانوني الكامل.">Managed shareholder relations, facilitated communication, and coordinated general assemblies including AGMs in full legal compliance.</li>
-        <li data-en="Prepared corporate disclosures: annual reports, proxy statements, and regulatory filings." data-ar="أعدت الإفصاحات المؤسسية: التقارير السنوية والبيانات التوكيلية والإيداعات التنظيمية.">Prepared corporate disclosures: annual reports, proxy statements, and regulatory filings.</li>
-        <li data-en="Advised employees and management on governance policy interpretation and application." data-ar="قدمت المشورة للموظفين والإدارة بشأن تفسير سياسات الحوكمة وتطبيقها.">Advised employees and management on governance policy interpretation and application.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-left">
-      <div class="exp-period" data-en="Jul 2021 – Jul 2022<br/>Kuwait / KSA · Full-time" data-ar="يوليو 2021 – يوليو 2022<br/>الكويت / السعودية · دوام كامل">Jul 2021 – Jul 2022<br/>Kuwait / KSA · Full-time</div>
-      <div class="exp-tags2"><span class="etag et-prop" data-en="Real Estate" data-ar="عقارات">Real Estate</span></div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-role2" data-en="Paralegal" data-ar="مساعد قانوني">Paralegal</div>
-      <div class="exp-org2" data-en="Majid Al Futtaim Properties — Country Head Office" data-ar="ماجد الفطيم للعقارات — المكتب الرئيسي">Majid Al Futtaim Properties — Country Head Office</div>
-      <ul class="exp-duties2">
-        <li data-en="Drafted, reviewed, and managed legal documents including contracts, RFPs, and legal letters." data-ar="صياغة ومراجعة وإدارة المستندات القانونية بما فيها العقود وطلبات العروض والمراسلات القانونية.">Drafted, reviewed, and managed legal documents including contracts, RFPs, and legal letters.</li>
-        <li data-en="Supported project management on contract execution, application of contract terms, and minimizing commercial risks." data-ar="دعم إدارة المشاريع في تنفيذ العقود وتطبيق بنودها وتقليل المخاطر التجارية.">Supported project management on contract execution, application of contract terms, and minimizing commercial risks.</li>
-        <li data-en="Attended meetings with governmental organizations and investors to negotiate legal affairs." data-ar="حضور الاجتماعات مع الجهات الحكومية والمستثمرين للتفاوض في الشؤون القانونية.">Attended meetings with governmental organizations and investors to negotiate legal affairs.</li>
-        <li data-en="Managed Board and Committee meetings, documentation, and governance while acting as member of the MAF Group management team in Kuwait." data-ar="إدارة اجتماعات المجلس واللجان وتوثيقها والحوكمة، مع التمثيل الفعلي في فريق إدارة مجموعة ماجد الفطيم بالكويت.">Managed Board and Committee meetings, documentation, and governance while acting as member of the MAF Group management team in Kuwait.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-left">
-      <div class="exp-period" data-en="Jun 2020 – Jul 2021<br/>Riyadh · Full-time" data-ar="يونيو 2020 – يوليو 2021<br/>الرياض · دوام كامل">Jun 2020 – Jul 2021<br/>Riyadh · Full-time</div>
-      <div class="exp-tags2"><span class="etag et-law" data-en="Legal" data-ar="قانوني">Legal</span></div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-role2" data-en="Trainee Lawyer and Legal Advisor" data-ar="محامية متدربة ومستشارة قانونية">Trainee Lawyer and Legal Advisor</div>
-      <div class="exp-org2" data-en="Mohammed Almarshad Law Firm" data-ar="مكتب محمد المرشد للمحاماة">Mohammed Almarshad Law Firm</div>
-      <ul class="exp-duties2">
-        <li data-en="Drafted pleadings, briefs, contracts, and legal letters. Provided oral and written legal advice to clients." data-ar="صياغة اللوائح والمذكرات والعقود والمراسلات القانونية. تقديم المشورة القانونية الشفهية والكتابية للموكلين.">Drafted pleadings, briefs, contracts, and legal letters. Provided oral and written legal advice to clients.</li>
-        <li data-en="Represented clients in trials and meetings; followed up post-decision for compliance with obligations." data-ar="تمثيل الموكلين في المحاكم والاجتماعات والمتابعة بعد صدور الأحكام للتحقق من الامتثال.">Represented clients in trials and meetings; followed up post-decision for compliance with obligations.</li>
-        <li data-en="Successfully handled 40+ cases delivering favorable outcomes across civil and corporate matters." data-ar="معالجة أكثر من 40 قضية بنجاح وتحقيق نتائج إيجابية في القضايا المدنية والمؤسسية.">Successfully handled 40+ cases delivering favorable outcomes across civil and corporate matters.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-left">
-      <div class="exp-period" data-en="May 2018 – Apr 2020<br/>Riyadh · Full-time" data-ar="مايو 2018 – أبريل 2020<br/>الرياض · دوام كامل">May 2018 – Apr 2020<br/>Riyadh · Full-time</div>
-      <div class="exp-tags2"><span class="etag et-law" data-en="Legal" data-ar="قانوني">Legal</span></div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-role2" data-en="Legal Trainee" data-ar="متدربة قانونية">Legal Trainee</div>
-      <div class="exp-org2" data-en="Abdulrahman Alharthi Law Firm" data-ar="مكتب عبدالرحمن الحارثي للمحاماة">Abdulrahman Alharthi Law Firm</div>
-      <ul class="exp-duties2">
-        <li data-en="Assisted legal consultants with legal advice and research. Conducted case studies and prepared memos." data-ar="مساعدة المستشارين القانونيين في تقديم المشورة والبحث القانوني. إجراء دراسات الحالة وإعداد المذكرات.">Assisted legal consultants with legal advice and research. Conducted case studies and prepared memos.</li>
-        <li data-en="Provided consulting in legal and sharia law; analyzed case facts against current law." data-ar="تقديم الاستشارات في القانون الوضعي والفقه الإسلامي؛ تحليل وقائع القضايا في ضوء القانون النافذ.">Provided consulting in legal and sharia law; analyzed case facts against current law.</li>
-        <li data-en="Worked across Marom Real-estate and Fars LLC — franchise planning, regulatory compliance, and legal operations." data-ar="العمل في شركة مارم للتطوير العقاري وشركة فارس ذات المسؤولية المحدودة — تخطيط الامتياز التجاري والامتثال التنظيمي والعمليات القانونية.">Worked across Marom Real-estate and Fars LLC — franchise planning, regulatory compliance, and legal operations.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- DISCIPLINES -->
-<section class="disciplines">
-  <div class="disc-head">
-    <div class="section-label" data-num="03" data-en="The Arsenal" data-ar="الترسانة">The Arsenal</div>
-    <div class="disc-subtitle" data-en="Three disciplines. One governance architect." data-ar="ثلاثة تخصصات. معماري حوكمة واحد.">Three disciplines. One governance architect.</div>
-  </div>
-  <div class="disc-grid">
-    <div class="disc-card">
-      <div class="dc-num">I</div>
-      <div class="dc-title" data-en="Governance and Board Affairs" data-ar="الحوكمة وشؤون مجلس الإدارة">Governance and Board Affairs</div>
-      <ul class="dc-list">
-        <li data-i="01" data-en="Corporate Governance Frameworks" data-ar="أطر الحوكمة المؤسسية">Corporate Governance Frameworks</li>
-        <li data-i="02" data-en="Board Secretariat Management" data-ar="إدارة سكرتارية المجلس">Board Secretariat Management</li>
-        <li data-i="03" data-en="Delegation of Authority" data-ar="تفويض الصلاحيات">Delegation of Authority</li>
-        <li data-i="04" data-en="Shareholder and Stakeholder Relations" data-ar="علاقات المساهمين وأصحاب المصلحة">Shareholder and Stakeholder Relations</li>
-        <li data-i="05" data-en="Regulatory Compliance" data-ar="الامتثال التنظيمي">Regulatory Compliance</li>
-        <li data-i="06" data-en="AGM and Committee Coordination" data-ar="تنسيق الجمعيات العامة واللجان">AGM and Committee Coordination</li>
-      </ul>
-    </div>
-    <div class="disc-card d2">
-      <div class="dc-num">II</div>
-      <div class="dc-title" data-en="Legal Practice" data-ar="الممارسة القانونية">Legal Practice</div>
-      <ul class="dc-list">
-        <li data-i="01" data-en="Legal Drafting and Review" data-ar="الصياغة والمراجعة القانونية">Legal Drafting and Review</li>
-        <li data-i="02" data-en="Contract Management" data-ar="إدارة العقود">Contract Management</li>
-        <li data-i="03" data-en="GRC Compliance (GRCP)" data-ar="امتثال الحوكمة والمخاطر (GRCP)">GRC Compliance (GRCP)</li>
-        <li data-i="04" data-en="Legal Research and Analysis" data-ar="البحث والتحليل القانوني">Legal Research and Analysis</li>
-        <li data-i="05" data-en="Pleadings and Court Representation" data-ar="اللوائح والتمثيل أمام المحاكم">Pleadings and Court Representation</li>
-        <li data-i="06" data-en="Sharia Law Consulting" data-ar="الاستشارات الشرعية">Sharia Law Consulting</li>
-      </ul>
-    </div>
-    <div class="disc-card d3">
-      <div class="dc-num">III</div>
-      <div class="dc-title" data-en="Leadership and Execution" data-ar="القيادة والتنفيذ">Leadership and Execution</div>
-      <ul class="dc-list">
-        <li data-i="01" data-en="Negotiation and Stakeholder Mgmt" data-ar="التفاوض وإدارة أصحاب المصلحة">Negotiation and Stakeholder Mgmt</li>
-        <li data-i="02" data-en="Risk Management" data-ar="إدارة المخاطر">Risk Management</li>
-        <li data-i="03" data-en="Project Management" data-ar="إدارة المشاريع">Project Management</li>
-        <li data-i="04" data-en="Arabic and English (Professional)" data-ar="العربية والإنجليزية (احترافي)">Arabic and English (Professional)</li>
-        <li data-i="05" data-en="Cross-functional Collaboration" data-ar="التعاون متعدد التخصصات">Cross-functional Collaboration</li>
-        <li data-i="06" data-en="Corporate Disclosures and Filings" data-ar="الإفصاحات المؤسسية والإيداعات">Corporate Disclosures and Filings</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="certifications" id="certifications">
-  <div class="cert-head">
-    <div class="section-label" data-num="04" data-en="Credentials" data-ar="الشهادات والمؤهلات">Credentials</div>
-    <div class="cert-subtitle" data-en="Credentialed and current." data-ar="مؤهلات معتمدة وسارية.">Credentialed and current.</div>
-  </div>
-  <div class="cert-tier-label" data-en="Tier I — Professional Certifications" data-ar="المستوى الأول — الشهادات المهنية">Tier I — Professional Certifications</div>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <div class="cert-badge">GRCP</div>
-      <div>
-        <div class="cert-name2" data-en="Governance, Risk and Compliance Professional" data-ar="محترف الحوكمة وإدارة المخاطر والامتثال">Governance, Risk and Compliance Professional</div>
-        <div class="cert-org2" data-en="Open Compliance and Ethics Group (OCEG) · 2021" data-ar="مجموعة الامتثال والأخلاقيات المفتوحة (OCEG) · 2021">Open Compliance and Ethics Group (OCEG) · 2021</div>
+    <div class="work-item">
+      <div class="wi-left">
+        <div class="wi-period" data-en="Jan 2024 – Dec 2025<br/>Riyadh · Full-time" data-ar="يناير 2024 – ديسمبر 2025<br/>الرياض · دوام كامل">Jan 2024 – Dec 2025<br/>Riyadh · Full-time</div>
+        <div class="wi-tags"><span class="wtag wt-pif">PIF</span></div>
+      </div>
+      <div class="wi-right">
+        <div class="wi-role" data-en="Board Secretariat and Corporate Governance Assistant Manager" data-ar="مساعد مدير سكرتارية مجلس الإدارة والحوكمة المؤسسية">Board Secretariat and Corporate Governance Assistant Manager</div>
+        <div class="wi-org" data-en="New Murabba Development Company — PIF Subsidiary" data-ar="شركة نيو مربع للتطوير — شركة تابعة لصندوق الاستثمارات العامة">New Murabba Development Company — PIF Subsidiary</div>
+        <ul class="wi-list">
+          <li data-en="Supported the Board and all affiliated Committees across the full governance cycle — scheduling, agendas, materials, minutes, resolution tracking, and formal distribution of decisions." data-ar="دعم المجلس وجميع اللجان المنبثقة عبر دورة الحوكمة الكاملة — الجدولة وجداول الأعمال والمواد والمحاضر وتتبّع القرارات والتوزيع الرسمي للقرارات.">Supported the Board and all affiliated Committees across the full governance cycle — scheduling, agendas, materials, minutes, resolution tracking, and formal distribution of decisions.</li>
+        </ul>
       </div>
     </div>
-    <div class="cert-card d2">
-      <div class="cert-badge">CFP</div>
-      <div>
-        <div class="cert-name2" data-en="Compliance Foundations Professional Exam" data-ar="اختبار أسس الامتثال المهني">Compliance Foundations Professional Exam</div>
-        <div class="cert-org2" data-en="The Financial Academy · 2021" data-ar="الأكاديمية المالية · 2021">The Financial Academy · 2021</div>
+
+    <div class="work-item">
+      <div class="wi-left">
+        <div class="wi-period" data-en="Aug 2022 – Dec 2023<br/>Riyadh · Full-time" data-ar="أغسطس 2022 – ديسمبر 2023<br/>الرياض · دوام كامل">Aug 2022 – Dec 2023<br/>Riyadh · Full-time</div>
+        <div class="wi-tags"><span class="wtag wt-pif">PIF</span></div>
+      </div>
+      <div class="wi-right">
+        <div class="wi-role" data-en="Senior Corporate Governance Specialist" data-ar="أخصائي أول للحوكمة المؤسسية">Senior Corporate Governance Specialist</div>
+        <div class="wi-org" data-en="Ceer National Automotive Company — PIF and Foxconn Joint Venture" data-ar="شركة سير للسيارات الوطنية — مشروع مشترك بين صندوق الاستثمارات العامة وفوكسكون">Ceer National Automotive Company — PIF and Foxconn Joint Venture</div>
+        <ul class="wi-list">
+          <li data-en="Managed shareholder affairs, coordinated general assemblies including AGMs, and ensured full legal and regulatory compliance across all shareholder governance activities." data-ar="أدارت شؤون المساهمين، ونسّقت الجمعيات العامة بما فيها السنوية، وضمنت الامتثال القانوني والتنظيمي الكامل في جميع أنشطة حوكمة المساهمين.">Managed shareholder affairs, coordinated general assemblies including AGMs, and ensured full legal and regulatory compliance across all shareholder governance activities.</li>
+          <li data-en="Prepared corporate disclosures including annual reports, proxy statements, and regulatory filings with accuracy and timeliness." data-ar="أعدّت الإفصاحات المؤسسية بما فيها التقارير السنوية والبيانات التوكيلية والإيداعات التنظيمية بدقة والتزام بالمواعيد.">Prepared corporate disclosures including annual reports, proxy statements, and regulatory filings with accuracy and timeliness.</li>
+          <li data-en="Provided governance advisory to management, advising on policy interpretation, compliance obligations, and governance best practice." data-ar="قدّمت المشورة الحوكمية للإدارة بشأن تفسير السياسات والالتزامات الامتثالية وأفضل ممارسات الحوكمة.">Provided governance advisory to management, advising on policy interpretation, compliance obligations, and governance best practice.</li>
+        </ul>
+        <div class="wi-focus-title" data-en="Focus Areas" data-ar="محاور العمل">Focus Areas</div>
+        <div class="wi-pills">
+          <span class="wi-pill" data-en="Shareholder Affairs" data-ar="شؤون المساهمين">Shareholder Affairs</span>
+          <span class="wi-pill" data-en="General Assemblies" data-ar="الجمعيات العامة">General Assemblies</span>
+          <span class="wi-pill" data-en="Governance Advisory" data-ar="المشورة الحوكمية">Governance Advisory</span>
+          <span class="wi-pill" data-en="Governance Operations" data-ar="العمليات الحوكمية">Governance Operations</span>
+        </div>
       </div>
     </div>
-    <div class="cert-card d3">
-      <div class="cert-badge">LL.B</div>
-      <div>
-        <div class="cert-name2" data-en="Bachelor of Laws" data-ar="بكالوريوس الحقوق">Bachelor of Laws</div>
-        <div class="cert-org2" data-en="King Saud University · 2020 · GPA 4.56 / 5.00 · Second Class of Honor" data-ar="جامعة الملك سعود · 2020 · المعدل 4.56 / 5.00 · الشرف الثاني">King Saud University · 2020 · GPA 4.56 / 5.00 · Second Class of Honor</div>
+
+    <div class="work-item">
+      <div class="wi-left">
+        <div class="wi-period" data-en="Jul 2021 – Jul 2022<br/>Kuwait / KSA · Full-time" data-ar="يوليو 2021 – يوليو 2022<br/>الكويت / السعودية · دوام كامل">Jul 2021 – Jul 2022<br/>Kuwait / KSA · Full-time</div>
+        <div class="wi-tags"><span class="wtag wt-prop" data-en="Real Estate" data-ar="عقارات">Real Estate</span></div>
+      </div>
+      <div class="wi-right">
+        <div class="wi-role" data-en="Paralegal" data-ar="مساعد قانوني">Paralegal</div>
+        <div class="wi-org" data-en="Majid Al Futtaim Properties — Country Head Office" data-ar="ماجد الفطيم للعقارات — المكتب الرئيسي">Majid Al Futtaim Properties — Country Head Office</div>
+        <ul class="wi-list">
+          <li data-en="Drafted, reviewed, and managed legal documents including contracts, RFPs, and legal letters; supported project management on contract execution and commercial risk mitigation." data-ar="صياغة ومراجعة وإدارة المستندات القانونية بما فيها العقود وطلبات العروض والمراسلات القانونية؛ دعم إدارة المشاريع في تنفيذ العقود وتخفيف المخاطر التجارية.">Drafted, reviewed, and managed legal documents including contracts, RFPs, and legal letters; supported project management on contract execution and commercial risk mitigation.</li>
+          <li data-en="Managed Board and Committee meetings and documentation; represented the organisation as acting member of the MAF Group management team in Kuwait." data-ar="إدارة اجتماعات المجلس واللجان وتوثيقها؛ تمثيل المنظمة عضواً فعلياً في فريق إدارة مجموعة ماجد الفطيم بالكويت.">Managed Board and Committee meetings and documentation; represented the organisation as acting member of the MAF Group management team in Kuwait.</li>
+        </ul>
+        <div class="wi-focus-title" data-en="Focus Areas" data-ar="محاور العمل">Focus Areas</div>
+        <div class="wi-pills">
+          <span class="wi-pill" data-en="Legal Advisory" data-ar="المشورة القانونية">Legal Advisory</span>
+          <span class="wi-pill" data-en="Commercial Risk" data-ar="المخاطر التجارية">Commercial Risk</span>
+          <span class="wi-pill" data-en="Cross-functional Coordination" data-ar="التنسيق متعدد الوظائف">Cross-functional Coordination</span>
+          <span class="wi-pill" data-en="Board Affairs" data-ar="شؤون مجلس الإدارة">Board Affairs</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="cert-tier-label" style="margin-top:2.5rem;" data-en="Tier II — Courses and Training" data-ar="المستوى الثاني — الدورات والتدريب">Tier II — Courses and Training</div>
-  <div class="courses-wrap">
-    <div class="course-item"><div class="ci-check">✓</div><span data-en="Board Secretary Course (2021)" data-ar="دورة سكرتير مجلس الإدارة (2021)">Board Secretary Course (2021)</span></div>
-    <div class="course-item d1"><div class="ci-check">✓</div><span data-en="Anti-Money Laundering Course (2020)" data-ar="دورة مكافحة غسل الأموال (2020)">Anti-Money Laundering Course (2020)</span></div>
-    <div class="course-item d2"><div class="ci-check">✓</div><span data-en="Leadership Essentials Course (2020)" data-ar="دورة أساسيات القيادة (2020)">Leadership Essentials Course (2020)</span></div>
-    <div class="course-item d3"><div class="ci-check">✓</div><span data-en="Detection Methods of Counterfeiting and Forgery (2020)" data-ar="أساليب كشف التزوير والتزييف (2020)">Detection Methods of Counterfeiting and Forgery (2020)</span></div>
-    <div class="course-item d4"><div class="ci-check">✓</div><span data-en="Future Misk Path — Career Preparation (2020)" data-ar="برنامج مسك للمستقبل — إعداد المهنيين (2020)">Future Misk Path — Career Preparation (2020)</span></div>
-    <div class="course-item d5"><div class="ci-check">✓</div><span data-en='Economic Conference "Money and Business" (2020)' data-ar='"المؤتمر الاقتصادي — المال والأعمال" (2020)'>Economic Conference "Money and Business" (2020)</span></div>
-    <div class="course-item d1"><div class="ci-check">✓</div><span data-en='Effective Guidance to "Legal Advice" Course (2019)' data-ar='"دورة التوجيه الفعّال للاستشارات القانونية" (2019)'>Effective Guidance to "Legal Advice" Course (2019)</span></div>
-    <div class="course-item d2"><div class="ci-check">✓</div><span data-en="Tuwaiq in the Saudi Capital Market (2019)" data-ar="طويق في سوق المال السعودي (2019)">Tuwaiq in the Saudi Capital Market (2019)</span></div>
-    <div class="course-item d3"><div class="ci-check">✓</div><span data-en="Declamation Course (2019)" data-ar="دورة فن الخطابة (2019)">Declamation Course (2019)</span></div>
-    <div class="course-item d4"><div class="ci-check">✓</div><span data-en='Open Forum Discussion "Anti-Dumping" (2018)' data-ar='"منتدى نقاش مفتوح — مكافحة الإغراق" (2018)'>Open Forum Discussion "Anti-Dumping" (2018)</span></div>
-  </div>
-</section>
+
+    <div class="work-item">
+      <div class="wi-left">
+        <div class="wi-period" data-en="Jun 2020 – Jul 2021<br/>Riyadh · Full-time" data-ar="يونيو 2020 – يوليو 2021<br/>الرياض · دوام كامل">Jun 2020 – Jul 2021<br/>Riyadh · Full-time</div>
+        <div class="wi-tags"><span class="wtag wt-law" data-en="Legal" data-ar="قانوني">Legal</span></div>
+      </div>
+      <div class="wi-right">
+        <div class="wi-role" data-en="Trainee Lawyer and Legal Advisor" data-ar="محامية متدربة ومستشارة قانونية">Trainee Lawyer and Legal Advisor</div>
+        <div class="wi-org" data-en="Mohammed Almarshad Law Firm" data-ar="مكتب محمد المرشد للمحاماة">Mohammed Almarshad Law Firm</div>
+        <ul class="wi-list">
+          <li data-en="Handled 40+ legal cases across civil and corporate matters, delivering favorable outcomes for all clients." data-ar="إدارة أكثر من 40 قضية قانونية في المجالات المدنية والمؤسسية وتحقيق نتائج إيجابية لجميع الموكلين.">Handled 40+ legal cases across civil and corporate matters, delivering favorable outcomes for all clients.</li>
+          <li data-en="Drafted legal documents, represented clients in courts, and provided legal advisory services across a broad range of matters." data-ar="صياغة المستندات القانونية وتمثيل الموكلين أمام المحاكم وتقديم خدمات الاستشارات القانونية في مجالات متنوعة.">Drafted legal documents, represented clients in courts, and provided legal advisory services across a broad range of matters.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="wi-left">
+        <div class="wi-period" data-en="May 2018 – Apr 2020<br/>Riyadh · Full-time" data-ar="مايو 2018 – أبريل 2020<br/>الرياض · دوام كامل">May 2018 – Apr 2020<br/>Riyadh · Full-time</div>
+        <div class="wi-tags"><span class="wtag wt-law" data-en="Legal" data-ar="قانوني">Legal</span></div>
+      </div>
+      <div class="wi-right">
+        <div class="wi-role" data-en="Legal Trainee" data-ar="متدربة قانونية">Legal Trainee</div>
+        <div class="wi-org" data-en="Abdulrahman Alharthi Law Firm" data-ar="مكتب عبدالرحمن الحارثي للمحاماة">Abdulrahman Alharthi Law Firm</div>
+        <ul class="wi-list">
+          <li data-en="Conducted case studies and legal research in both civil law and sharia law; prepared legal memos, contracts, and advisory documents." data-ar="إجراء دراسات الحالة والبحث القانوني في القانون المدني والفقه الإسلامي؛ إعداد المذكرات القانونية والعقود ووثائق المشورة.">Conducted case studies and legal research in both civil law and sharia law; prepared legal memos, contracts, and advisory documents.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- KEY CONTRIBUTIONS -->
+<div class="page" id="contributions">
+  <section class="contributions-section">
+    <div class="sh">
+      <div class="sh-index">04</div>
+      <div class="sh-title" data-en="Key Contributions" data-ar="الإسهامات الرئيسية">Key Contributions</div>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="contrib-grid">
+      <div class="cb">
+        <div class="cb-num">01</div>
+        <div class="cb-title" data-en="Governance Function Establishment" data-ar="تأسيس وظيفة الحوكمة">Governance Function Establishment</div>
+        <div class="cb-text" data-en="Contributed to establishing Governance and Board Secretariat departments within sovereign-backed organisations — including governance frameworks, operating models, policies, processes, and governance structures built from the ground up." data-ar="أسهمت في تأسيس إدارات الحوكمة وسكرتارية مجلس الإدارة في المنظمات ذات السيادة — بما فيها أطر الحوكمة ونماذج التشغيل والسياسات والعمليات وهياكل الحوكمة المبنية من الصفر.">Contributed to establishing Governance and Board Secretariat departments within sovereign-backed organisations — including governance frameworks, operating models, policies, processes, and governance structures built from the ground up.</div>
+      </div>
+      <div class="cb d2">
+        <div class="cb-num">02</div>
+        <div class="cb-title" data-en="Board Operations Transformation" data-ar="تحويل عمليات المجلس">Board Operations Transformation</div>
+        <div class="cb-text" data-en="Enhanced Board and Committee governance practices through process optimisation, governance controls, resolution tracking systems, and structured stakeholder engagement — improving the quality and efficiency of Board operations." data-ar="عزّزت ممارسات حوكمة المجلس واللجان من خلال تحسين العمليات وضوابط الحوكمة وأنظمة تتبّع القرارات وإشراك أصحاب المصلحة بشكل منظّم — مما أدى إلى تحسين جودة وكفاءة عمليات المجلس.">Enhanced Board and Committee governance practices through process optimisation, governance controls, resolution tracking systems, and structured stakeholder engagement — improving the quality and efficiency of Board operations.</div>
+      </div>
+      <div class="cb d3">
+        <div class="cb-num">03</div>
+        <div class="cb-title" data-en="Governance Framework Development" data-ar="تطوير أطر الحوكمة">Governance Framework Development</div>
+        <div class="cb-text" data-en="Supported the development and enhancement of governance frameworks, Board and Committee charters, policies, and authority structures — aligned with Saudi regulatory requirements and leading international governance practices." data-ar="دعمت تطوير وتعزيز أطر الحوكمة ومواثيق المجلس واللجان والسياسات وهياكل الصلاحيات — متوافقة مع المتطلبات التنظيمية السعودية وأفضل ممارسات الحوكمة الدولية.">Supported the development and enhancement of governance frameworks, Board and Committee charters, policies, and authority structures — aligned with Saudi regulatory requirements and leading international governance practices.</div>
+      </div>
+      <div class="cb d4">
+        <div class="cb-num">04</div>
+        <div class="cb-title" data-en="Executive Stakeholder Management" data-ar="إدارة أصحاب المصلحة التنفيذيين">Executive Stakeholder Management</div>
+        <div class="cb-text" data-en="Worked directly with Board members, Committee members, C-suite executives, senior government stakeholders, and external advisors on strategic governance matters — delivering clear, accurate, and timely governance support at the highest organisational levels." data-ar="عملت مباشرة مع أعضاء المجلس وأعضاء اللجان والمديرين التنفيذيين وكبار المسؤولين الحكوميين والمستشارين الخارجيين في الشؤون الحوكمية الاستراتيجية — مقدّمةً دعماً حوكمياً واضحاً ودقيقاً وفي الوقت المناسب على أعلى المستويات التنظيمية.">Worked directly with Board members, Committee members, C-suite executives, senior government stakeholders, and external advisors on strategic governance matters — delivering clear, accurate, and timely governance support at the highest organisational levels.</div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <!-- ACHIEVEMENTS -->
-<section class="achievements" id="achievements">
-  <div class="ach-head">
-    <div class="section-label" data-num="05" data-en="Recognition" data-ar="الإنجازات">Recognition</div>
-    <div class="ach-subtitle" data-en="Measured in outcomes, not opinions." data-ar="تُقاس بالنتائج، لا بالآراء.">Measured in outcomes, not opinions.</div>
-  </div>
-  <div class="ach-items">
-    <div class="ach-row">
-      <div class="ach-idx">01</div>
-      <div class="ach-body">
-        <div class="ach-title2" data-en="40+ Cases. All Favorable." data-ar="+40 قضية. جميعها بنتائج إيجابية.">40+ Cases. All Favorable.</div>
-        <div class="ach-desc" data-en="Successfully handled over forty (40) legal cases across civil, corporate, and governance matters — delivering favorable outcomes for every client. Across firms, industries, and jurisdictions." data-ar="معالجة أكثر من أربعين (40) قضية قانونية في المجالات المدنية والمؤسسية والحوكمة — مع تحقيق نتائج إيجابية لكل موكل. عبر مكاتب ومجالات واختصاصات قضائية متعددة.">Successfully handled over forty (40) legal cases across civil, corporate, and governance matters — delivering favorable outcomes for every client. Across firms, industries, and jurisdictions.</div>
+<div class="page" id="achievements">
+  <section class="achievements-section">
+    <div class="sh">
+      <div class="sh-index">05</div>
+      <div class="sh-title" data-en="Key Achievements" data-ar="الإنجازات الرئيسية">Key Achievements</div>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="ach-list">
+      <div class="ach-item">
+        <div class="ach-idx">01</div>
+        <div>
+          <div class="ach-title" data-en="Governance Department Established — New Murabba (PIF)" data-ar="تأسيس إدارة الحوكمة — نيو مربع (صندوق الاستثمارات العامة)">Governance Department Established — New Murabba (PIF)</div>
+          <div class="ach-desc" data-en="Contributed to building the Governance and Board Secretariat function from the ground up within a flagship sovereign development — establishing the frameworks, operating model, and governance structures that underpin the organisation's Board operations." data-ar="أسهمت في بناء وظيفة الحوكمة وسكرتارية مجلس الإدارة من الصفر داخل مشروع تنموي سيادي رائد — ووضعت الأطر ونموذج التشغيل وهياكل الحوكمة التي تدعم عمليات مجلس الإدارة في المنظمة.">Contributed to building the Governance and Board Secretariat function from the ground up within a flagship sovereign development — establishing the frameworks, operating model, and governance structures that underpin the organisation's Board operations.</div>
+        </div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-idx">02</div>
+        <div>
+          <div class="ach-title" data-en="Board Operations Transformation Programme" data-ar="برنامج تحويل عمليات مجلس الإدارة">Board Operations Transformation Programme</div>
+          <div class="ach-desc" data-en="Led governance enhancement initiatives that optimised Board and Committee processes, strengthened resolution tracking, and elevated the quality of executive governance support across PIF portfolio companies." data-ar="قادت مبادرات تعزيز الحوكمة التي حسّنت عمليات المجلس واللجان وعزّزت تتبّع القرارات ورفعت جودة دعم الحوكمة التنفيذية في شركات محفظة صندوق الاستثمارات العامة.">Led governance enhancement initiatives that optimised Board and Committee processes, strengthened resolution tracking, and elevated the quality of executive governance support across PIF portfolio companies.</div>
+        </div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-idx">03</div>
+        <div>
+          <div class="ach-title" data-en="Governance Frameworks Developed Across Multiple Mandates" data-ar="تطوير أطر حوكمة عبر مهام متعددة">Governance Frameworks Developed Across Multiple Mandates</div>
+          <div class="ach-desc" data-en="Supported the development and enhancement of governance frameworks, charters, authority matrices, and policies across multiple organisations — ensuring alignment with Saudi regulatory requirements and international governance standards." data-ar="دعمت تطوير وتعزيز أطر الحوكمة والمواثيق وجداول الصلاحيات والسياسات عبر منظمات متعددة — مع ضمان التوافق مع المتطلبات التنظيمية السعودية ومعايير الحوكمة الدولية.">Supported the development and enhancement of governance frameworks, charters, authority matrices, and policies across multiple organisations — ensuring alignment with Saudi regulatory requirements and international governance standards.</div>
+        </div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-idx">04</div>
+        <div>
+          <div class="ach-title" data-en="First Digital Legal Services Platform in the Middle East" data-ar="أول منصة رقمية للخدمات القانونية في الشرق الأوسط">First Digital Legal Services Platform in the Middle East</div>
+          <div class="ach-desc" data-en="Provided full executive oversight of operating companies that built and launched the first digital legal services application and website of its kind in the Middle East — from inception through delivery." data-ar="قدّمت إشرافاً تنفيذياً كاملاً على شركات التشغيل التي بنت وأطلقت أول تطبيق وموقع إلكتروني للخدمات القانونية الرقمية من نوعه في الشرق الأوسط — من البداية حتى التسليم.">Provided full executive oversight of operating companies that built and launched the first digital legal services application and website of its kind in the Middle East — from inception through delivery.</div>
+        </div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-idx">05</div>
+        <div>
+          <div class="ach-title" data-en="40+ Legal Cases — All Favorable" data-ar="+40 قضية قانونية — جميعها بنتائج إيجابية">40+ Legal Cases — All Favorable</div>
+          <div class="ach-desc" data-en="Successfully managed and resolved over 40 legal cases across civil and corporate matters, consistently delivering favorable outcomes for clients across firms, industries, and jurisdictions." data-ar="إدارة وحسم أكثر من 40 قضية قانونية في المجالات المدنية والمؤسسية بنجاح، مع تحقيق نتائج إيجابية باستمرار لجميع الموكلين عبر مكاتب وقطاعات واختصاصات قضائية متعددة.">Successfully managed and resolved over 40 legal cases across civil and corporate matters, consistently delivering favorable outcomes for clients across firms, industries, and jurisdictions.</div>
+        </div>
       </div>
     </div>
-    <div class="ach-row">
-      <div class="ach-idx">02</div>
-      <div class="ach-body">
-        <div class="ach-title2" data-en="First Digital Legal Services Platform in the Middle East" data-ar="أول منصة رقمية للخدمات القانونية في الشرق الأوسط">First Digital Legal Services Platform in the Middle East</div>
-        <div class="ach-desc" data-en="Fully supervised the operating companies that built and launched the first digital legal services application and website of its kind in the Middle East — from concept through delivery." data-ar="أشرفت إشرافاً كاملاً على شركات التشغيل التي أنشأت وأطلقت أول تطبيق وموقع إلكتروني للخدمات القانونية الرقمية من نوعه في الشرق الأوسط — من الفكرة حتى التسليم.">Fully supervised the operating companies that built and launched the first digital legal services application and website of its kind in the Middle East — from concept through delivery.</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- VOLUNTEER -->
-<section class="volunteer" id="volunteer">
-  <div class="vol-head">
-    <div class="section-label" data-num="06" data-en="Volunteer and Memberships" data-ar="التطوع والعضويات">Volunteer and Memberships</div>
-    <div class="vol-subtitle" data-en="Giving back to the profession." data-ar="العطاء للمهنة.">Giving back to the profession.</div>
-  </div>
-  <div class="vol-items">
-    <div class="vol-row"><div class="vr-year">2019</div><div class="vr-text" data-en="Book Fair Volunteer" data-ar="متطوعة في معرض الكتاب">Book Fair Volunteer</div></div>
-    <div class="vol-row"><div class="vr-year">2018</div><div class="vr-text" data-en="Member — Cultural and Social Club, King Saud University" data-ar="عضو — النادي الثقافي والاجتماعي، جامعة الملك سعود">Member — Cultural and Social Club, King Saud University</div></div>
-    <div class="vol-row"><div class="vr-year">2016</div><div class="vr-text" data-en="Member — Law Club, King Saud University" data-ar="عضو — نادي القانون، جامعة الملك سعود">Member — Law Club, King Saud University</div></div>
-  </div>
-</section>
+<!-- DISCIPLINES -->
+<div class="page" id="disciplines">
+  <section class="disciplines-section">
+    <div class="sh">
+      <div class="sh-index">06</div>
+      <div class="sh-title" data-en="Disciplines" data-ar="المجالات">Disciplines</div>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="disc-grid">
+      <div class="disc-card">
+        <div class="dc-n">I</div>
+        <div class="dc-title" data-en="Governance and Board Affairs" data-ar="الحوكمة وشؤون مجلس الإدارة">Governance and Board Affairs</div>
+        <ul class="dc-list">
+          <li data-i="01" data-en="Corporate Governance Frameworks" data-ar="أطر الحوكمة المؤسسية">Corporate Governance Frameworks</li>
+          <li data-i="02" data-en="Board Secretariat Management" data-ar="إدارة سكرتارية المجلس">Board Secretariat Management</li>
+          <li data-i="03" data-en="Committee Governance" data-ar="حوكمة اللجان">Committee Governance</li>
+          <li data-i="04" data-en="Delegation of Authority" data-ar="تفويض الصلاحيات">Delegation of Authority</li>
+          <li data-i="05" data-en="Regulatory Compliance" data-ar="الامتثال التنظيمي">Regulatory Compliance</li>
+          <li data-i="06" data-en="Shareholder and AGM Management" data-ar="إدارة المساهمين والجمعيات العامة">Shareholder and AGM Management</li>
+        </ul>
+      </div>
+      <div class="disc-card d2">
+        <div class="dc-n">II</div>
+        <div class="dc-title" data-en="Legal and Compliance" data-ar="القانون والامتثال">Legal and Compliance</div>
+        <ul class="dc-list">
+          <li data-i="01" data-en="Legal Drafting and Review" data-ar="الصياغة والمراجعة القانونية">Legal Drafting and Review</li>
+          <li data-i="02" data-en="Contract Management" data-ar="إدارة العقود">Contract Management</li>
+          <li data-i="03" data-en="GRC Compliance — GRCP Certified" data-ar="امتثال GRC — حاصلة على GRCP">GRC Compliance — GRCP Certified</li>
+          <li data-i="04" data-en="Legal Research and Analysis" data-ar="البحث والتحليل القانوني">Legal Research and Analysis</li>
+          <li data-i="05" data-en="Corporate Disclosures and Filings" data-ar="الإفصاحات المؤسسية والإيداعات">Corporate Disclosures and Filings</li>
+          <li data-i="06" data-en="Sharia Law Consulting" data-ar="الاستشارات الشرعية">Sharia Law Consulting</li>
+        </ul>
+      </div>
+      <div class="disc-card d3">
+        <div class="dc-n">III</div>
+        <div class="dc-title" data-en="Leadership and Strategy" data-ar="القيادة والاستراتيجية">Leadership and Strategy</div>
+        <ul class="dc-list">
+          <li data-i="01" data-en="Executive Stakeholder Management" data-ar="إدارة أصحاب المصلحة التنفيذيين">Executive Stakeholder Management</li>
+          <li data-i="02" data-en="Governance Transformation" data-ar="التحول في الحوكمة">Governance Transformation</li>
+          <li data-i="03" data-en="Risk Management" data-ar="إدارة المخاطر">Risk Management</li>
+          <li data-i="04" data-en="Cross-functional Collaboration" data-ar="التعاون متعدد التخصصات">Cross-functional Collaboration</li>
+          <li data-i="05" data-en="Arabic and English — Professional" data-ar="العربية والإنجليزية — احترافي">Arabic and English — Professional</li>
+          <li data-i="06" data-en="Strategic Operations" data-ar="العمليات الاستراتيجية">Strategic Operations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CREDENTIALS -->
+<div class="page" id="credentials">
+  <section class="credentials-section">
+    <div class="sh">
+      <div class="sh-index">07</div>
+      <div class="sh-title" data-en="Credentials" data-ar="المؤهلات والشهادات">Credentials</div>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="courses-tier-label" data-en="Professional Certifications" data-ar="الشهادات المهنية">Professional Certifications</div>
+    <div class="cred-grid">
+      <div class="cred-card">
+        <div class="cred-badge">GRCP</div>
+        <div>
+          <div class="cred-name" data-en="Governance, Risk and Compliance Professional" data-ar="محترف الحوكمة وإدارة المخاطر والامتثال">Governance, Risk and Compliance Professional</div>
+          <div class="cred-org" data-en="Open Compliance and Ethics Group (OCEG) · 2021" data-ar="مجموعة الامتثال والأخلاقيات المفتوحة · 2021">Open Compliance and Ethics Group (OCEG) · 2021</div>
+        </div>
+      </div>
+      <div class="cred-card d2">
+        <div class="cred-badge">CFP</div>
+        <div>
+          <div class="cred-name" data-en="Compliance Foundations Professional" data-ar="محترف أسس الامتثال">Compliance Foundations Professional</div>
+          <div class="cred-org" data-en="The Financial Academy · 2021" data-ar="الأكاديمية المالية · 2021">The Financial Academy · 2021</div>
+        </div>
+      </div>
+      <div class="cred-card d3">
+        <div class="cred-badge">LL.B</div>
+        <div>
+          <div class="cred-name" data-en="Bachelor of Laws — Second Class Honours" data-ar="بكالوريوس الحقوق — تقدير الشرف الثاني">Bachelor of Laws — Second Class Honours</div>
+          <div class="cred-org" data-en="King Saud University · 2020 · GPA 4.56 / 5.00" data-ar="جامعة الملك سعود · 2020 · المعدل 4.56 من 5.00">King Saud University · 2020 · GPA 4.56 / 5.00</div>
+        </div>
+      </div>
+    </div>
+    <div class="courses-tier-label" data-en="Professional Development" data-ar="التطوير المهني">Professional Development</div>
+    <div class="courses-grid">
+      <div class="course-row"><div class="cr-check">✓</div><span data-en="Board Secretary Course (2021)" data-ar="دورة سكرتير مجلس الإدارة (2021)">Board Secretary Course (2021)</span></div>
+      <div class="course-row d1"><div class="cr-check">✓</div><span data-en="Anti-Money Laundering Course (2020)" data-ar="دورة مكافحة غسل الأموال (2020)">Anti-Money Laundering Course (2020)</span></div>
+      <div class="course-row d2"><div class="cr-check">✓</div><span data-en="Leadership Essentials Course (2020)" data-ar="دورة أساسيات القيادة (2020)">Leadership Essentials Course (2020)</span></div>
+      <div class="course-row d3"><div class="cr-check">✓</div><span data-en="Detection of Counterfeiting and Forgery (2020)" data-ar="أساليب كشف التزوير والتزييف (2020)">Detection of Counterfeiting and Forgery (2020)</span></div>
+      <div class="course-row d4"><div class="cr-check">✓</div><span data-en="Future Misk Path — Career Preparation (2020)" data-ar="برنامج مسك للمستقبل — إعداد المهنيين (2020)">Future Misk Path — Career Preparation (2020)</span></div>
+      <div class="course-row d5"><div class="cr-check">✓</div><span data-en="Economic Conference — Money and Business (2020)" data-ar="المؤتمر الاقتصادي — المال والأعمال (2020)">Economic Conference — Money and Business (2020)</span></div>
+      <div class="course-row d1"><div class="cr-check">✓</div><span data-en="Effective Legal Advisory Course (2019)" data-ar="دورة الاستشارات القانونية الفعّالة (2019)">Effective Legal Advisory Course (2019)</span></div>
+      <div class="course-row d2"><div class="cr-check">✓</div><span data-en="Tuwaiq in the Saudi Capital Market (2019)" data-ar="طويق في سوق المال السعودي (2019)">Tuwaiq in the Saudi Capital Market (2019)</span></div>
+      <div class="course-row d3"><div class="cr-check">✓</div><span data-en="Declamation Course (2019)" data-ar="دورة فن الخطابة (2019)">Declamation Course (2019)</span></div>
+      <div class="course-row d4"><div class="cr-check">✓</div><span data-en="Anti-Dumping Forum Discussion (2018)" data-ar="منتدى نقاش مكافحة الإغراق (2018)">Anti-Dumping Forum Discussion (2018)</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- COMMUNITY -->
+<div class="page">
+  <section class="community-section">
+    <div class="sh">
+      <div class="sh-index">08</div>
+      <div class="sh-title" data-en="Community" data-ar="المجتمع والتطوع">Community</div>
+      <div class="sh-rule"></div>
+    </div>
+    <div class="vol-list">
+      <div class="vol-row"><div class="vr-yr">2019</div><div class="vr-txt" data-en="Book Fair Volunteer" data-ar="متطوعة في معرض الكتاب">Book Fair Volunteer</div></div>
+      <div class="vol-row"><div class="vr-yr">2018</div><div class="vr-txt" data-en="Member — Cultural and Social Club, King Saud University" data-ar="عضو — النادي الثقافي والاجتماعي، جامعة الملك سعود">Member — Cultural and Social Club, King Saud University</div></div>
+      <div class="vol-row"><div class="vr-yr">2016</div><div class="vr-txt" data-en="Member — Law Club, King Saud University" data-ar="عضو — نادي القانون، جامعة الملك سعود">Member — Law Club, King Saud University</div></div>
+    </div>
+  </section>
+</div>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-label" data-en="Let's Talk" data-ar="تواصل معي">Let's Talk</div>
-  <h2 class="contact-heading">
-    <span data-en="Got a governance<br/>problem worth" data-ar="لديك تحدٍّ في الحوكمة<br/>يستحق">Got a governance<br/>problem worth</span>
-    <em data-en="solving?" data-ar="الحل؟">solving?</em>
+<section class="contact-section" id="contact">
+  <div class="cs-label" data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</div>
+  <h2 class="cs-head">
+    <span data-en="Governance challenge worth" data-ar="تحدٍّ في الحوكمة يستحق">Governance challenge worth</span><br/>
+    <em data-en="solving together?" data-ar="العمل عليه معاً؟">solving together?</em>
   </h2>
-  <div class="contact-links">
-    <a class="cl-email" href="mailto:sadeemalharthiksu@hotmail.com">sadeemalharthiksu@hotmail.com →</a>
-    <div class="contact-row">
-      <a class="cr-item" href="tel:+966545903278">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        +966 54 590 3278
-      </a>
-      <a class="cr-item" href="mailto:sadeemalharthiksu@hotmail.com">
-        <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <span data-en="Email" data-ar="البريد الإلكتروني">Email</span>
-      </a>
-    </div>
+  <a class="cs-email" href="mailto:sadeemalharthiksu@hotmail.com">sadeemalharthiksu@hotmail.com</a>
+  <div class="cs-row">
+    <a class="cs-link" href="tel:+966545903278">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +966 54 590 3278
+    </a>
+    <a class="cs-link" href="mailto:sadeemalharthiksu@hotmail.com">
+      <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <span data-en="Email" data-ar="البريد الإلكتروني">Email</span>
+    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft-left">
     <div class="ft-dot"></div>
     <span data-en="© 2026 Sadeem Abdulrahman Alharthi" data-ar="© 2026 سديم عبدالرحمن الحارثي">© 2026 Sadeem Abdulrahman Alharthi</span>
   </div>
-  <span data-en="Designed with intent" data-ar="صُمِّم بقصد">Designed with intent</span>
+  <span data-en="Governance and Board Affairs Leader" data-ar="قائدة الحوكمة وشؤون مجلس الإدارة">Governance and Board Affairs Leader</span>
 </footer>
 
 <script>
-// ── THEME TOGGLE ──
-const themeBtn = document.getElementById('themeToggle');
-if(localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light');
-themeBtn.addEventListener('click', () => {
-  const isLight = document.documentElement.classList.toggle('light');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+// ── THEME ──
+const themeBtn = document.getElementById('themeBtn');
+// default = light; only go dark if user explicitly chose dark
+if(localStorage.getItem('theme')==='dark') document.documentElement.classList.remove('light');
+themeBtn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('light');
+  localStorage.setItem('theme', document.documentElement.classList.contains('light')?'light':'dark');
 });
 
-// ── LANGUAGE TOGGLE ──
-const langBtn = document.getElementById('langToggle');
-let isAr = localStorage.getItem('lang') === 'ar';
+// ── LANGUAGE ──
+const langBtn = document.getElementById('langBtn');
+let isAr = localStorage.getItem('lang')==='ar';
 
-function applyLang(ar) {
-  const html = document.documentElement;
-  if(ar) {
-    html.setAttribute('lang','ar');
-    html.setAttribute('dir','rtl');
-    langBtn.textContent = 'EN';
-  } else {
-    html.setAttribute('lang','en');
-    html.setAttribute('dir','ltr');
-    langBtn.textContent = 'ع';
-  }
-  // swap all [data-en]/[data-ar] elements
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const val = ar ? el.dataset.ar : el.dataset.en;
-    if(!val) return;
-    // use innerHTML to support <strong><br/> etc
-    el.innerHTML = val;
+function applyLang(ar){
+  const h = document.documentElement;
+  h.lang = ar ? 'ar' : 'en';
+  h.dir  = ar ? 'rtl' : 'ltr';
+  langBtn.textContent = ar ? 'EN' : 'ع';
+  document.title = ar ? 'سديم الحارثي — الحوكمة وشؤون مجلس الإدارة' : 'Sadeem Alharthi — Governance & Board Affairs';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v = ar ? el.dataset.ar : el.dataset.en;
+    if(v !== undefined) el.innerHTML = v;
   });
-  // swap page title
-  document.title = ar
-    ? 'سديم الحارثي — معماري الحوكمة'
-    : 'Sadeem Alharthi — The Governance Architect';
 }
-
 if(isAr) applyLang(true);
-
-langBtn.addEventListener('click', () => {
-  isAr = !isAr;
-  localStorage.setItem('lang', isAr ? 'ar' : 'en');
-  applyLang(isAr);
-});
+langBtn.addEventListener('click',()=>{ isAr=!isAr; localStorage.setItem('lang',isAr?'ar':'en'); applyLang(isAr); });
 
 // ── SCROLL ANIMATIONS ──
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
-}, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.jt-item,.exp-item,.disc-card,.cert-card,.course-item,.ach-row').forEach(el => io.observe(el));
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
+},{threshold:0.08, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.jt-row,.work-item,.ep,.disc-card,.cred-card,.course-row,.ach-item,.cb').forEach(el=>io.observe(el));
 
 // ── COUNTERS ──
-const countObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
+const countObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
     if(!e.isIntersecting) return;
     const el = e.target;
+    if(el.dataset.val){ el.textContent=el.dataset.val; countObs.unobserve(el); return; }
     const target = +el.dataset.target;
-    const suffix = target >= 6 && target <= 40 && (target===40||target===6) ? '+' : '';
-    let n = 0;
-    const interval = setInterval(() => {
-      n++;
-      el.textContent = n + suffix;
-      if(n >= target) clearInterval(interval);
-    }, 1600 / target);
+    const suffix = (target===40||target===7||target===10||target===20||target===16) ? '+' : '';
+    let n=0;
+    const t = setInterval(()=>{ n++; el.textContent=n+suffix; if(n>=target) clearInterval(t); }, 1400/target);
     countObs.unobserve(el);
   });
 },{threshold:0.5});
-document.querySelectorAll('.nb-num[data-target]').forEach(el => countObs.observe(el));
+document.querySelectorAll('.metric-num[data-target],.metric-num[data-val]').forEach(el=>countObs.observe(el));
 </script>
 </body>
 </html>
